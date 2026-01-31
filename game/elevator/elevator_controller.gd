@@ -2,7 +2,7 @@ class_name ElevatorController extends StaticBody3D
 
 const PANEL_PHYSICS_LAYER = 3
 
-@onready var interaction_component: InteractionComponent = $InteractionComponent
+#@onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var elevator_camera: Camera3D = $ElevatorCamera
 
 var player: Player
@@ -10,9 +10,6 @@ var controlling := false
 var camera_transitioning := false
 
 var hovring_button: ElevatorButton
-
-func _ready() -> void:
-	interaction_component.interact = Callable(self, "_on_interact_elevator")
 
 func _on_interact_elevator(interactor: Player) -> void:
 	if controlling:
@@ -39,8 +36,8 @@ func _process(_delta: float) -> void:
 		return
 	if not camera_transitioning and player.get_movement_dir() != Vector3.ZERO:
 		set_elevator_control_state(false)
-	if hovring_button and Input.is_action_just_pressed("primary"):
-		hovring_button.on_pressed()
+	#if hovring_button and Input.is_action_just_pressed("primary"):
+		#hovring_button.on_pressed()
 
 func _physics_process(_delta: float) -> void:
 	if not controlling:

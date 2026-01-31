@@ -86,5 +86,5 @@ func ui_init() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
 	if default_reticle.texture: default_reticle.position = screen_size / 2 - default_reticle.texture.get_size() / 2
 	highlight_reticle.position = screen_size / 2 - highlight_reticle.texture.get_size() / 2
-	default_reticle.visible = false
+	default_reticle.visible = true
 	highlight_reticle.visible = false

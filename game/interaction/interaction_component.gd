@@ -14,7 +14,13 @@ var is_interacting: bool = false
 
 var interact: Callable = func(_interactor : Player):
 	pass
-	
+
+var focus_hint: Callable = func():
+	pass
+
+var unfocus_hint: Callable = func():
+	pass
+
 ### Runs once, when the player FIRST clicks on an object to interact with
 #func preInteract(_hand: Marker3D, _target: Node = null) -> void:
 	#is_interacting = true
@@ -38,7 +44,9 @@ var interact: Callable = func(_interactor : Player):
 ## when the controller detect the obj before interact
 func interact_hint() -> void:
 	can_interact = true
+	focus_hint.call()
 
 ## when the controller leaves
 func disable_interact_hint() -> void:
 	can_interact = false
+	unfocus_hint.call()
