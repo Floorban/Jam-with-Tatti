@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b4eugtsd6dowa" path="res://models/elevator/elevator_button.glb" id="3_i2j2k"]
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="4_q6bga"]
 [ext_resource type="PackedScene" uid="uid://b3uyd2kjs7vi0" path="res://models/room/room.glb" id="5_ac16t"]
-[ext_resource type="PackedScene" uid="uid://yxuw7vomfv6" path="res://models/ceiling_fan/ceiling_fan_base.glb" id="6_m07c5"]
-[ext_resource type="PackedScene" uid="uid://bys1dm7cw40cq" path="res://models/ceiling_fan/ceiling_fan_blades.glb" id="7_c1qpo"]
-[ext_resource type="Script" uid="uid://cclrtud1vtafg" path="res://game/room/ceiling_fan_blades.gd" id="8_iaxp8"]
+[ext_resource type="PackedScene" uid="uid://yxuw7vomfv6" path="res://models/props/ceiling_fan/ceiling_fan_base.glb" id="6_m07c5"]
+[ext_resource type="PackedScene" uid="uid://bys1dm7cw40cq" path="res://models/props/ceiling_fan/ceiling_fan_blades.glb" id="7_c1qpo"]
+[ext_resource type="Script" uid="uid://cclrtud1vtafg" path="res://game/room/ceiling_fan.gd" id="8_iaxp8"]
+[ext_resource type="PackedScene" uid="uid://cxb4iianyx0lb" path="res://models/props/chair/chair.glb" id="9_q6bga"]
+[ext_resource type="PackedScene" uid="uid://bbf2bb2a7q2ac" path="res://models/props/table/table.glb" id="10_ac16t"]
+[ext_resource type="PackedScene" uid="uid://be6efm5l0t72c" path="res://models/props/vase/vase.tscn" id="11_m07c5"]
 
 [node name="TattisTestLevel" type="Node3D" unique_id=863637753]
 
@@ -54,15 +57,28 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("4_q6bga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+walking_speed = 2.0
 
-[node name="room" parent="." unique_id=1317536530 instance=ExtResource("5_ac16t")]
+[node name="room" parent="." unique_id=872457426 instance=ExtResource("5_ac16t")]
 
 [node name="ceiling_fan_base" parent="room" unique_id=1719097484 instance=ExtResource("6_m07c5")]
 
 [node name="ceiling_fan_blades" parent="room/ceiling_fan_base" unique_id=1366519778 instance=ExtResource("7_c1qpo")]
 
-[node name="CeilingFanBlades" parent="room/ceiling_fan_base/ceiling_fan_blades" index="0" unique_id=1271518166]
+[node name="CeilingFanBlades" parent="room/ceiling_fan_base/ceiling_fan_blades" index="0" unique_id=1563878195]
 script = ExtResource("8_iaxp8")
-rotation_speed = 25.0
+rotation_speed = 9.5
+
+[node name="chair" parent="room" unique_id=1578998858 instance=ExtResource("9_q6bga")]
+transform = Transform3D(-0.8129179, 0, -0.5823783, 0, 1, 0, 0.5823783, 0, -0.8129179, -2.3923652, 0, -7.1157084)
+
+[node name="chair2" parent="room" unique_id=1460631575 instance=ExtResource("9_q6bga")]
+transform = Transform3D(0.2401602, 0, -0.9707333, 0, 1, 0, 0.9707333, 0, 0.2401602, -2.3761787, 0, -2.6929767)
+
+[node name="table" parent="room" unique_id=627162071 instance=ExtResource("10_ac16t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9927073)
+
+[node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0668776, 0.8611118, -4.968859)
 
 [editable path="room/ceiling_fan_base/ceiling_fan_blades"]

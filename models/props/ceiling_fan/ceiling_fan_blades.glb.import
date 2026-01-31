@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yxuw7vomfv6"
-path="res://.godot/imported/ceiling_fan_base.glb-b6cd5fe9627f3586125289c312218715.scn"
+uid="uid://bys1dm7cw40cq"
+path="res://.godot/imported/ceiling_fan_blades.glb-6b40cef3f5af89123197468c4002b8d4.scn"
 
 [deps]
 
-source_file="res://models/ceiling_fan/ceiling_fan_base.glb"
-dest_files=["res://.godot/imported/ceiling_fan_base.glb-b6cd5fe9627f3586125289c312218715.scn"]
+source_file="res://models/props/ceiling_fan/ceiling_fan_blades.glb"
+dest_files=["res://.godot/imported/ceiling_fan_blades.glb-6b40cef3f5af89123197468c4002b8d4.scn"]
 
 [params]
 
@@ -39,20 +39,15 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"elevator_button": {
+"Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/metal_rusted_white.tres",
-"use_external/path": "uid://dhylpvq73qfat"
+"use_external/fallback_path": "res://materials/wood.tres",
+"use_external/path": "uid://cn0tieqmf27id"
 },
 "elevator_floor": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://materials/metal_plate_diamond.tres",
 "use_external/path": "uid://n7xjk0fueg4k"
-},
-"lamp": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://materials/lamp.tres",
-"use_external/path": "uid://ci610x7o0wsmp"
 }
 }
 }
