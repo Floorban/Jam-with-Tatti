@@ -1,5 +1,7 @@
 extends Node
 
+var on_finished: Callable = Callable()
+
 @onready var camera3D: Camera3D = $Camera3D
 @onready var tween: Tween
 
@@ -31,12 +33,15 @@ func _process(delta: float) -> void:
 			transitioning = false
 			camera3D.current = false
 			to_camera.current = true
+			if on_finished.is_valid():
+				on_finished.call()
+				on_finished = Callable()
 
 func switch_camera(from, to) -> void:
 	from.current = false
 	to.current = true
 
-func transition_camera3D(from: Camera3D, to: Camera3D, duration: float = 1.0) -> void:
+func transition_camera3D(from: Camera3D, to: Camera3D, duration: float = 1.0, callback: Callable = Callable()) -> void:
 	if transitioning:
 		return
 
@@ -45,6 +50,7 @@ func transition_camera3D(from: Camera3D, to: Camera3D, duration: float = 1.0) ->
 	to_camera = to
 	transition_duration = duration
 	transition_time = 0.0
+	on_finished = callback
 
 	# Initialize transition camera
 	camera3D.fov = from.fov

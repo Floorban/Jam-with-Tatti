@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	update_player_horizontal(delta)
 
 func update_player_horizontal(delta: float) -> void:
+	if not can_move:
+		return
 	max_speed = walking_speed + hold_back_speed
 	direction = lerp(direction, get_movement_dir(), delta * 10.0)
 	if direction.length() > 0.01:
