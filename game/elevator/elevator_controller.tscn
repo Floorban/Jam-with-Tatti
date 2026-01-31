@@ -40,24 +40,34 @@ texture = SubResource("ImageTexture_p81tc")
 [node name="FloorButtons" type="Node3D" parent="." unique_id=1169897637]
 script = ExtResource("3_p81tc")
 
-[node name="PanelButton0" parent="FloorButtons" unique_id=910825982 instance=ExtResource("3_02lqp")]
+[node name="PanelButton0" parent="FloorButtons" unique_id=910825982 groups=["floor_button"] instance=ExtResource("3_02lqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010016635, -0.08354342, 0.00860551)
 
-[node name="PanelButton1" parent="FloorButtons" unique_id=1292482782 instance=ExtResource("3_02lqp")]
+[node name="PanelButton1" parent="FloorButtons" unique_id=1292482782 groups=["floor_button"] instance=ExtResource("3_02lqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08642519, -0.08354342, 0.00860551)
 
-[node name="PanelButton2" parent="FloorButtons" unique_id=1696228605 instance=ExtResource("3_02lqp")]
+[node name="PanelButton2" parent="FloorButtons" unique_id=1696228605 groups=["floor_button"] instance=ExtResource("3_02lqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010016635, -0.0044393353, 0.00860551)
 
-[node name="PanelButton3" parent="FloorButtons" unique_id=51510330 instance=ExtResource("3_02lqp")]
+[node name="PanelButton3" parent="FloorButtons" unique_id=51510330 groups=["floor_button"] instance=ExtResource("3_02lqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08642519, -0.0044393353, 0.00860551)
 
 [node name="ActionButtons" type="Node3D" parent="." unique_id=1657357019]
 script = ExtResource("5_mcpym")
 
-[node name="PanelButtonClose" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
+[node name="PanelButtonOpen" parent="ActionButtons" unique_id=1052726071 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.09911737, 0.00860551)
+
+[node name="ButtonActionLabel" parent="ActionButtons/PanelButtonOpen" index="3" unique_id=687128113]
+text = "< | >"
+font_size = 20
+
+[node name="PanelButtonClose" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11480922, 0.09911737, -0.002721779)
+visible = false
+collision_layer = 0
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonClose" index="3" unique_id=687128113]
 text = ">|<
@@ -71,5 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04186452, 0.09926054, 0.008
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonWarning" index="3" unique_id=687128113]
 text = "!"
 
+[editable path="ActionButtons/PanelButtonOpen"]
 [editable path="ActionButtons/PanelButtonClose"]
 [editable path="ActionButtons/PanelButtonWarning"]

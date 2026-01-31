@@ -10,3 +10,8 @@ script = ExtResource("1_1kwht")
 unique_name_in_owner = true
 current = true
 fov = 90.0
+
+[node name="CameraLayer" type="CanvasLayer" parent="." unique_id=1122515726]
+layer = 0
+
+[node name="SubViewport" type="SubViewport" parent="CameraLayer" unique_id=1003213985]

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c8b2srshfhg3u" path="res://game/elevator/elevator_controller.tscn" id="2_neiuf"]
 [ext_resource type="PackedScene" uid="uid://bkqhwakdgkinp" path="res://models/elevator/elevator.glb" id="3_6xa3n"]
 [ext_resource type="PackedScene" uid="uid://db6c0wsjpls4i" path="res://game/elevator/elevator_door.tscn" id="4_c5md6"]
+[ext_resource type="Script" uid="uid://jxr6y5vjbsym" path="res://game/level/building.gd" id="5_8fld1"]
+[ext_resource type="PackedScene" uid="uid://b283iou0j31nv" path="res://game/level/floor_0.tscn" id="5_sxqq6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,13 +31,123 @@ shadow_enabled = true
 
 [node name="elevator" parent="." unique_id=1217569799 instance=ExtResource("3_6xa3n")]
 
+[node name="Building" type="Node3D" parent="." unique_id=1879413860 node_paths=PackedStringArray("floors")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.08111191)
+script = ExtResource("5_8fld1")
+floors = [NodePath("Floor_0"), NodePath("Floor_1"), NodePath("Floor_2"), NodePath("Floor_3")]
+
+[node name="Floor_0" parent="Building" unique_id=504758970 instance=ExtResource("5_sxqq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.282146)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Building/Floor_0" unique_id=436158900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+size = Vector3(3.1992188, 0.1694336, 6.6574097)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Building/Floor_0" unique_id=8263479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7784433, -0.5641918)
+size = Vector3(3.1992188, 0.1694336, 6.6412964)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Building/Floor_0" unique_id=189046965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3610849, -3.750308)
+size = Vector3(2.9658203, 2.8591309, 0.28842163)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Building/Floor_0" unique_id=1855963229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4225464, 1.4066615, -0.57224846)
+size = Vector3(0.35412598, 2.8970947, 6.6574097)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Building/Floor_0" unique_id=1365289725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4184337, 1.4066615, -0.5641918)
+size = Vector3(0.35412598, 2.8970947, 6.6412964)
+
+[node name="Floor_1" parent="Building" unique_id=1867008355 instance=ExtResource("5_sxqq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.917387, -4.282146)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Building/Floor_1" unique_id=1012676762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+size = Vector3(3.1992188, 0.1694336, 6.6574097)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Building/Floor_1" unique_id=1303269181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7784433, -0.5641918)
+size = Vector3(3.1992188, 0.1694336, 6.6412964)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Building/Floor_1" unique_id=648868737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3610849, -3.750308)
+size = Vector3(2.9658203, 2.8591309, 0.28842163)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Building/Floor_1" unique_id=1565640650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4225464, 1.4066615, -0.57224846)
+size = Vector3(0.35412598, 2.8970947, 6.6574097)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Building/Floor_1" unique_id=785005903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4184337, 1.4066615, -0.5641918)
+size = Vector3(0.35412598, 2.8970947, 6.6412964)
+
+[node name="Floor_2" parent="Building" unique_id=582412197 instance=ExtResource("5_sxqq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.909984, -4.282146)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Building/Floor_2" unique_id=1151294084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+size = Vector3(3.1992188, 0.1694336, 6.6574097)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Building/Floor_2" unique_id=588486601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7784433, -0.5641918)
+size = Vector3(3.1992188, 0.1694336, 6.6412964)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Building/Floor_2" unique_id=615426711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3610849, -3.750308)
+size = Vector3(2.9658203, 2.8591309, 0.28842163)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Building/Floor_2" unique_id=1707874403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4225464, 1.4066615, -0.57224846)
+size = Vector3(0.35412598, 2.8970947, 6.6574097)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Building/Floor_2" unique_id=453152831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4184337, 1.4066615, -0.5641918)
+size = Vector3(0.35412598, 2.8970947, 6.6412964)
+
+[node name="Floor_3" parent="Building" unique_id=1077932791 instance=ExtResource("5_sxqq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.86381, -4.282146)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Building/Floor_3" unique_id=909901668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+size = Vector3(3.1992188, 0.1694336, 6.6574097)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Building/Floor_3" unique_id=1119192473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7784433, -0.5641918)
+size = Vector3(3.1992188, 0.1694336, 6.6412964)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Building/Floor_3" unique_id=1868265070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3610849, -3.750308)
+size = Vector3(2.9658203, 2.8591309, 0.28842163)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Building/Floor_3" unique_id=1258673267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4225464, 1.4066615, -0.57224846)
+size = Vector3(0.35412598, 2.8970947, 6.6574097)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Building/Floor_3" unique_id=1915442899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4184337, 1.4066615, -0.5641918)
+size = Vector3(0.35412598, 2.8970947, 6.6412964)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Building" unique_id=1891788388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8105145, -2.2910519)
+size = Vector3(3.1970215, 3.977539, 1.5218506)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Building" unique_id=613614455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.761781, -2.2910519)
+size = Vector3(3.1970215, 3.977539, 1.5218506)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Building" unique_id=328153469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.71561, -2.2910519)
+size = Vector3(3.1970215, 3.977539, 1.5218506)
+
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 walking_speed = 1.2
 sprinting_speed = 2.0
 
-[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("door") instance=ExtResource("2_neiuf")]
+[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("building", "door") instance=ExtResource("2_neiuf")]
 transform = Transform3D(-1.141829e-07, 0, 2.6122003, 0, 2.6122003, 0, -2.6122003, 0, -1.141829e-07, -1.4339697, 1.5714293, -0.85383654)
+building = NodePath("../Building")
 door = NodePath("../ElevatorDoor")
 
 [node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("4_c5md6")]
