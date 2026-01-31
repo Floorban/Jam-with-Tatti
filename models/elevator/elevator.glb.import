@@ -37,6 +37,24 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"elevator_floor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/metal_plate_diamond.tres",
+"use_external/path": "uid://n7xjk0fueg4k"
+},
+"elevator_walls": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/elevator_walls.tres",
+"use_external/path": "uid://d0mdfisru3q6d"
+},
+"railing": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/railing.tres",
+"use_external/path": "uid://b3u48wpbss03v"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

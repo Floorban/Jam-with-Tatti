@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://yg2j6j35d7xf"]
+
+[ext_resource type="Texture2D" uid="uid://bql4nfaxj3i6y" path="res://models/room/room_old_wood_floor_diff_2k.png" id="1_dxnv1"]
+[ext_resource type="Texture2D" uid="uid://b2wnxrmfa0vee" path="res://models/room/room_old_wood_floor_rough_2k.png" id="2_bwwhg"]
+[ext_resource type="Texture2D" uid="uid://cuy3512ngyhlc" path="res://models/room/room_old_wood_floor_nor_gl_2k.png" id="3_yjfhd"]
+
+[resource]
+resource_name = "room_floor"
+cull_mode = 2
+albedo_texture = ExtResource("1_dxnv1")
+metallic_texture = ExtResource("2_bwwhg")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_bwwhg")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_yjfhd")

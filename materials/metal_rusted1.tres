@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0mdfisru3q6d"]
+
+[ext_resource type="Texture2D" uid="uid://b6idvksn2k7w" path="res://models/elevator/elevator_rusty_metal_05_diff_1k.jpg" id="1_85beq"]
+[ext_resource type="Texture2D" uid="uid://bvaifrne0gg0r" path="res://models/elevator/elevator_rusty_metal_05_rough_1k.png" id="2_c10j0"]
+[ext_resource type="Texture2D" uid="uid://cxd0lvqvd1he1" path="res://models/elevator/elevator_rusty_metal_05_nor_gl_1k.png" id="3_odkhs"]
+
+[resource]
+resource_name = "elevator_walls"
+cull_mode = 2
+albedo_texture = ExtResource("1_85beq")
+metallic_texture = ExtResource("2_c10j0")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_c10j0")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_odkhs")

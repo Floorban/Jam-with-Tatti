@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3u48wpbss03v"]
+
+[ext_resource type="Texture2D" uid="uid://c03wff1kxt8co" path="res://models/elevator/elevator_metal_0029_color_1k.jpg" id="1_oq1sp"]
+[ext_resource type="Texture2D" uid="uid://bu7q3tb1167ao" path="res://models/elevator/elevator_metal_0029_metallic_1k-metal_0029_roughness_1k.png" id="2_obggx"]
+[ext_resource type="Texture2D" uid="uid://crs21deb3ix4d" path="res://models/elevator/elevator_metal_0029_normal_opengl_1k.png" id="3_lyrki"]
+
+[resource]
+resource_name = "railing"
+cull_mode = 2
+albedo_texture = ExtResource("1_oq1sp")
+metallic = 1.0
+metallic_texture = ExtResource("2_obggx")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_obggx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_lyrki")
