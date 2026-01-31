@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://brtlmi4u6clvv"]
+
+[ext_resource type="Script" uid="uid://5dkyn15j3t72" path="res://game/elevator/elevator_button.gd" id="1_ylqwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8kow"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.70894563, 0.70894563, 0.7089456, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r8kow"]
+material = SubResource("StandardMaterial3D_r8kow")
+size = Vector3(0.05, 0.05, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8kow"]
+size = Vector3(0.05, 0.05, 0.01)
+
+[node name="PanelButton" type="Area3D" unique_id=910825982]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ylqwl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=720800730]
+mesh = SubResource("BoxMesh_r8kow")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1965359733]
+shape = SubResource("BoxShape3D_r8kow")

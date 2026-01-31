@@ -19,43 +19,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not can_interact: return
 	# If on the previous frame, keep interacting with it
-	if current_object:
-		if interaction_component:
-			perform_interactions(interaction_component)
-		else:
-			stop_interactions()
+	if current_object and not interaction_component:
+		stop_interactions()
 	else:
 		check_potential_interactables()
-
-func perform_interactions(target: InteractionComponent) -> void:
-	if player.head.global_transform.origin.distance_to(current_object.global_transform.origin) > 3.0:
-		interaction_component.postInteract()
-		_unfocus()
-		return
-	if Input.is_action_just_pressed("secondary"):
-		target.auxInteract()
-		stop_interactions()
-	elif Input.is_action_pressed("primary"):
-		target.interact()
-	else:
-		target.postInteract()
-		if not interaction_component:
-			stop_interactions()
 
 func stop_interactions() -> void:
 	if current_object: # and not interaction_component is InteractionHolddable
 		current_object = null
 	_unfocus()
-
-func call_target_interact(target: InteractionComponent) ->  void:
-	pass
-	#if interaction_component is InteractionHolddable:
-		#interaction_component.preInteract(chest, current_object)
-	#else:
-		#interaction_component.preInteract(hand, current_object)
-	#
-	#if interaction_component is InteractionCollectable:
-		#interaction_component.connect("item_collected", Callable(self, "_on_item_collected"))
 
 func check_potential_interactables() -> void:
 	var potential_object: Object = interaction_raycast.get_collider()
@@ -80,7 +52,9 @@ func check_potential_interactables() -> void:
 			_focus()
 			if Input.is_action_just_pressed("primary"):
 				current_object = potential_object
-				call_target_interact(interaction_component)
+				match interaction_component.interact_type:
+					InteractionComponent.InteractionType.CLICK:
+						interaction_component.interact.call(player)
 		else: 
 			stop_interactions()
 	else:

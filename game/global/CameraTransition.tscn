@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0tvbdeg7j8ge"]
+
+[ext_resource type="Script" uid="uid://dfv6cit0skski" path="res://game/global/camera_transition.gd" id="1_cphbx"]
+
+[node name="CameraTransition" type="Node" unique_id=1350702576]
+script = ExtResource("1_cphbx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1351054594]

@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @onready var head: Node3D = %Head
 @onready var interaction_controller: InteractionController = %InteractionController
+@onready var camera_controller: CameraController = $Head/CameraController
 
 @export_category("Movement")
 @export var walking_speed: float = 2.0
@@ -15,6 +16,11 @@ var moving: bool = false
 var input_dir: Vector2 = Vector2.ZERO
 var direction: Vector3 = Vector3.ZERO
 var lerp_speed: float = 4.0
+
+func set_player_input(stop: bool) -> void:
+	can_move = !stop
+	interaction_controller.can_interact = !stop
+	camera_controller.can_control = !stop
 
 func get_movement_dir() -> Vector3:
 	input_dir = Input.get_vector("left", "right", "forward", "backward")

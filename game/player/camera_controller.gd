@@ -3,6 +3,7 @@ class_name CameraController extends Node3D
 @export var player_controller: Player
 
 @export_category("Camera Settings")
+var can_control := true
 @onready var player_camera: Camera3D = %PlayerCamera
 @export var normal_sensitivity: float = 0.01
 @onready var current_sensitivity: float = normal_sensitivity
@@ -27,7 +28,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 
-	if event is InputEventMouseMotion:
+	if can_control and event is InputEventMouseMotion:
 		mouse_input.x += -event.screen_relative.x * current_sensitivity
 		mouse_input.y += -event.screen_relative.y * current_sensitivity
 

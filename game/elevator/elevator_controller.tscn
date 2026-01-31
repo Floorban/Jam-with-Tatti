@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c8b2srshfhg3u"]
+
+[ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="1_msh32"]
+[ext_resource type="Script" uid="uid://cqvdgwr643m0k" path="res://game/elevator/elevator_controller.gd" id="1_ycwdn"]
+[ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/panel_button.tscn" id="3_02lqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02lqp"]
+shading_mode = 0
+albedo_color = Color(0.20413154, 0.20413157, 0.20413154, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0gx44"]
+material = SubResource("StandardMaterial3D_02lqp")
+size = Vector3(0.3, 0.5, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycwdn"]
+size = Vector3(0.3, 0.5, 0.02)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_02lqp"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ElevatorController" type="StaticBody3D" unique_id=418184877]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ycwdn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1376852725]
+mesh = SubResource("BoxMesh_0gx44")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136225685]
+shape = SubResource("BoxShape3D_ycwdn")
+
+[node name="InteractionComponent" parent="." unique_id=194650918 instance=ExtResource("1_msh32")]
+
+[node name="ElevatorCamera" type="Camera3D" parent="." unique_id=272235360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0066376626, 0.13645685)
+fov = 120.0
+
+[node name="Screen" type="Sprite3D" parent="." unique_id=1646434819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07319195, 0.15920421, 0.010028303)
+texture = SubResource("ViewportTexture_02lqp")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1002214222]
+size = Vector2i(8, 12)
+
+[node name="FloorButtons" type="Node3D" parent="." unique_id=1169897637]
+
+[node name="PanelButton1" parent="FloorButtons" unique_id=910825982 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010016635, -0.06706669, 0.013151169)
+
+[node name="PanelButton2" parent="FloorButtons" unique_id=1292482782 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08642519, -0.06706669, 0.013151169)
+
+[node name="PanelButton3" parent="FloorButtons" unique_id=1696228605 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010016635, 0.012037396, 0.013151169)
+
+[node name="PanelButton4" parent="FloorButtons" unique_id=51510330 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08642519, 0.012037396, 0.013151169)
+
+[node name="ActionButtons" type="Node3D" parent="." unique_id=1657357019]
+
+[node name="PanelButton1" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.15414539, 0.013151169)
+
+[node name="PanelButton2" parent="ActionButtons" unique_id=1556346262 instance=ExtResource("3_02lqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04186452, -0.15618816, 0.013151169)
