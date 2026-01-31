@@ -6,9 +6,9 @@ class_name ElevatorDoor extends CharacterBody3D
 
 @export var open_scale_x := 0.05
 @export var closed_scale_x := 1.0
-@export var move_duration := 0.4
+@export var move_duration := 1.5
 
-var is_open := false
+var is_open := true
 var tween: Tween
 
 func open() -> void:

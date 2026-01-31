@@ -6,9 +6,13 @@ class_name ElevatorController extends StaticBody3D
 
 func _ready() -> void:
 	panel_button_close.action_button_pressed.connect(_on_close_button_pressed)
+	panel_button_warning.action_button_pressed.connect(_on_open_button_pressed)
 
 func _on_close_button_pressed(close_button: ElevatorButton) -> void:
 	door.close()
+
+func _on_open_button_pressed(open_button: ElevatorButton) -> void:
+	door.open()
 
 
 
