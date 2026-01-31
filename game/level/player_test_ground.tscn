@@ -33,19 +33,7 @@ material_override = SubResource("StandardMaterial3D_3sdid")
 size = Vector3(6.9072266, 0.21850586, 7.1467285)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1551623)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1725996332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2241359, 0.7922697, 0)
-size = Vector3(0.21118164, 1, 0.56933594)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=479614253]
-transform = Transform3D(0.83303714, 0.5532171, 0, -0.5532171, 0.83303714, 0, 0, 0, 1, 1.4814091, 0.7922697, 1.9528264)
-size = Vector3(0.21118164, 1, 0.56933594)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1202470677]
-transform = Transform3D(0.53246266, 0, -0.8464535, 0, 1, 0, 0.8464535, 0, 0.53246266, 2.1536262, 0.7671232, -1.0518476)
-size = Vector3(0.21118164, 1.050293, 0.56933594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, -1.7799746)
 
 [node name="InteractableTestObj" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14864612, 0.73698413, -2.2925844)

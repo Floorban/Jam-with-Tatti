@@ -1,13 +1,15 @@
-class_name ElavatorButton extends Area3D
+class_name ElavatorButton extends StaticBody3D
 
-# Called when the node enters the scene tree for the first time.
+@onready var outline: MeshInstance3D = %Outline
+
 func _ready() -> void:
-	pass # Replace with function body.
+	unfocus_button()
 
+func focus_button() -> void:
+	outline.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func unfocus_button() -> void:
+	outline.visible = false
 
 func on_pressed() -> void:
 	print("pp")

@@ -1,7 +1,11 @@
 class_name InteractionController extends Node
 
 @export var player: Player
-@export var can_interact: bool = true
+@export var can_interact: bool = true: 
+	set(value):
+		can_interact = value
+		if value: check_potential_interactables()
+		else: _unfocus()
 @onready var interaction_raycast: RayCast3D = %InteractionRay
 
 var current_object: Object

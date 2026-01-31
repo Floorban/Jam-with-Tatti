@@ -9,6 +9,8 @@ var player: Player
 var controlling := false
 var camera_transitioning := false
 
+var hovring_button: ElavatorButton
+
 func _ready() -> void:
 	interaction_component.interact = Callable(self, "_on_interact_elevator")
 
@@ -22,17 +24,23 @@ func set_elevator_control_state(controlled) -> void:
 	camera_transitioning = true
 	controlling = controlled
 	if controlling: 
-		CameraTransition.transition_camera3D(player.camera_controller.player_camera, elevator_camera, 0.4, Callable(self, "set_player_input_state"))
+		CameraTransition.transition_camera3D(player.camera_controller.player_camera, elevator_camera, 0.3, Callable(self, "set_player_input_state"))
 	else: 
-		CameraTransition.transition_camera3D(elevator_camera, player.camera_controller.player_camera, 0.2, Callable(self, "set_player_input_state"))
+		CameraTransition.transition_camera3D(elevator_camera, player.camera_controller.player_camera, 0.15, Callable(self, "set_player_input_state"))
 
 func set_player_input_state() -> void:
+	if controlling: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.set_player_input(controlling)
 	camera_transitioning = false
 
-func _process(delta: float) -> void:
-	if not camera_transitioning and controlling and player.get_movement_dir() != Vector3.ZERO:
+func _process(_delta: float) -> void:
+	if not controlling:
+		return
+	if not camera_transitioning and player.get_movement_dir() != Vector3.ZERO:
 		set_elevator_control_state(false)
+	if hovring_button and Input.is_action_just_pressed("primary"):
+		hovring_button.on_pressed()
 
 func _physics_process(_delta: float) -> void:
 	if not controlling:
@@ -48,6 +56,12 @@ func _physics_process(_delta: float) -> void:
 	var result := space_state.intersect_ray(p)
 	if result:
 		var btn : ElavatorButton = result.collider
-		if btn: btn.on_pressed()
-		#var col : CollisionShape3D = collider.get_node_or_null("CollisionShape")
-		#ghost_mesh.global_transform = col.global_transform
+		if not btn:
+			return
+		if hovring_button and btn != hovring_button: 
+			hovring_button.unfocus_button()
+		hovring_button = btn
+		hovring_button.focus_button()
+	elif hovring_button: 
+		hovring_button.unfocus_button()
+		hovring_button = null
