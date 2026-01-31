@@ -1,4 +1,5 @@
-extends MeshInstance3D
+class_name CeilingFan
+extends Node3D
 
 @export_range(0, 20, 0.5) var rotation_speed: float = 1
 

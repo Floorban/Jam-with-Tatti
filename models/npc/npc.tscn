@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cc1k86y541c14"]
+
+[ext_resource type="PackedScene" uid="uid://ccpcbax6ml4qq" path="res://models/npc/npc.glb" id="1_a0r65"]
+[ext_resource type="Script" uid="uid://btcnk0afapx44" path="res://models/npc/npc.gd" id="2_w8j5a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a0r65"]
+radius = 0.27294922
+
+[node name="npc" unique_id=176283948 instance=ExtResource("1_a0r65")]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("2_w8j5a")
+
+[node name="Skeleton3D" parent="metarig" parent_id_path=PackedInt32Array(1704348539) index="0" unique_id=1139858743]
+bones/0/position = Vector3(4.03095e-05, 0.9573475, 0.054665532)
+bones/0/rotation = Quaternion(-0.12581967, 1.0946304e-08, 1.0946305e-08, 0.99205315)
+bones/2/rotation = Quaternion(0.07746413, 2.2604154e-07, -1.2130407e-08, 0.99699515)
+bones/8/rotation = Quaternion(0.44252682, 0.47351527, 0.5201374, 0.55624676)
+bones/9/rotation = Quaternion(-0.0034008157, -0.0347203, 0.0019779154, 0.99938935)
+bones/10/rotation = Quaternion(0.04259849, -0.04342058, 0.07451421, 0.99536306)
+bones/12/rotation = Quaternion(0.44201103, -0.4739231, -0.5193897, 0.5570078)
+bones/13/rotation = Quaternion(-0.0034008909, 0.03472031, -0.0019779592, 0.99938935)
+bones/14/rotation = Quaternion(0.04305775, 0.043630905, -0.07746033, 0.99510926)
+bones/15/rotation = Quaternion(0.96123594, -0.092932634, 0.17613429, -0.1906983)
+bones/16/rotation = Quaternion(-0.18029149, 0.008217601, -0.10342356, 0.97812635)
+bones/17/rotation = Quaternion(0.577341, -0.10609196, 0.12937202, 0.7991775)
+bones/20/position = Vector3(-1.0045995, 0.3495698, 0.0496988)
+bones/21/position = Vector3(-0.2632732, -0.051585317, -0.15935658)
+bones/21/rotation = Quaternion(-0.035106912, -0.15556762, 0.9817856, -0.10326299)
+bones/22/rotation = Quaternion(0.9622621, 0.09295412, -0.17026082, -0.19084679)
+bones/23/rotation = Quaternion(-0.1802927, -0.008217637, 0.10342418, 0.978126)
+bones/24/rotation = Quaternion(0.57811433, 0.10339592, -0.12500532, 0.79966664)
+bones/27/position = Vector3(0.99777454, 0.34956962, 0.04969882)
+bones/28/position = Vector3(0.26494297, -0.051585168, -0.15935652)
+bones/28/rotation = Quaternion(0.035498984, -0.15560038, 0.9813255, 0.107371956)
+bones/29/position = Vector3(-0.19692974, -0.29550952, -0.5765097)
+bones/30/position = Vector3(0.20253949, -0.29550952, -0.57650965)
+bones/31/rotation = Quaternion(0.874871, 0, 0, -0.4843559)
+bones/32/rotation = Quaternion(0.874871, 0, 0, -0.4843559)
+
+[node name="HeadLookAt" type="LookAtModifier3D" parent="metarig/Skeleton3D" index="1" unique_id=2098996641]
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=588472431]
+deterministic = true
+speed_scale = 4.0
+
+[node name="StateTimer" type="Timer" parent="." index="2" unique_id=1377993753]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3" unique_id=1858644739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_a0r65")
+
+[node name="Area3D" type="Area3D" parent="." index="4" unique_id=531319315]

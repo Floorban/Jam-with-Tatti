@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="4_q6bga"]
 [ext_resource type="PackedScene" uid="uid://b3uyd2kjs7vi0" path="res://models/room/room.glb" id="5_ac16t"]
 [ext_resource type="PackedScene" uid="uid://bmws6spleyhl7" path="res://models/props/ceiling_fan/ceiling_fan.tscn" id="8_wl8fw"]
-[ext_resource type="PackedScene" uid="uid://cxb4iianyx0lb" path="res://models/props/chair/chair.glb" id="9_q6bga"]
 [ext_resource type="PackedScene" uid="uid://bbf2bb2a7q2ac" path="res://models/props/table/table.glb" id="10_ac16t"]
+[ext_resource type="PackedScene" uid="uid://cc1k86y541c14" path="res://models/npc/npc.tscn" id="10_i2j2k"]
+[ext_resource type="PackedScene" uid="uid://blq65mau51sxy" path="res://models/props/chair/chair.tscn" id="10_q6bga"]
 [ext_resource type="PackedScene" uid="uid://be6efm5l0t72c" path="res://models/props/vase/vase.tscn" id="11_m07c5"]
 
 [node name="TattisTestLevel" type="Node3D" unique_id=863637753]
 
-[node name="elevator" parent="." unique_id=377518606 instance=ExtResource("1_tmds7")]
+[node name="elevator" parent="." unique_id=397907603 instance=ExtResource("1_tmds7")]
 
 [node name="elevator_button_panel" parent="elevator" unique_id=167842056 instance=ExtResource("2_wl8fw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.419474, 1.3644487, -0.9161583)
@@ -54,22 +55,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.905
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.1798494, -1.0392293)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("4_q6bga")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-walking_speed = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.178453, 0)
+collision_layer = 8
+collision_mask = 9
+walking_speed = 4.0
+
+[node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014993906, 1.1419629, -6.6226535)
 
 [node name="room" parent="." unique_id=872457426 instance=ExtResource("5_ac16t")]
 
-[node name="chair" parent="room" unique_id=1578998858 instance=ExtResource("9_q6bga")]
-transform = Transform3D(-0.8129179, 0, -0.5823783, 0, 1, 0, 0.5823783, 0, -0.8129179, -2.3923652, 0, -7.1157084)
-
-[node name="chair2" parent="room" unique_id=1460631575 instance=ExtResource("9_q6bga")]
-transform = Transform3D(0.2401602, 0, -0.9707333, 0, 1, 0, 0.9707333, 0, 0.2401602, -2.3761787, 0, -2.6929767)
-
 [node name="table" parent="room" unique_id=627162071 instance=ExtResource("10_ac16t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9927073)
+transform = Transform3D(1.3261492, 0, 0, 0, 1.3261492, 0, 0, 0, 1.3261492, 0, 0, -6.6469293)
 
 [node name="CeilingFan" parent="room" unique_id=1371555635 instance=ExtResource("8_wl8fw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06572044, 3.4282193, -4.6662846)
 
-[node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0668776, 0.8611118, -4.968859)
+[node name="chair" parent="room" unique_id=1578998858 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, 0, 0, -3.8074167)
+
+[node name="chair2" parent="room" unique_id=24705436 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, -1.249117, 0, -3.8074167)
+
+[node name="chair3" parent="room" unique_id=135199621 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, 1.1702605, 0, -3.8074167)
+
+[node name="npc" parent="." unique_id=176283948 instance=ExtResource("10_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2314682, -2.9445095)
+move_speed = 1.5
