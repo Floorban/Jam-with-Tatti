@@ -46,12 +46,12 @@ _subresources={
 },
 "elevator_walls": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/elevator_walls.tres",
+"use_external/fallback_path": "res://materials/metal_rusted1.tres",
 "use_external/path": "uid://d0mdfisru3q6d"
 },
 "railing": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/railing.tres",
+"use_external/fallback_path": "res://materials/metal_rusted2.tres",
 "use_external/path": "uid://b3u48wpbss03v"
 }
 }

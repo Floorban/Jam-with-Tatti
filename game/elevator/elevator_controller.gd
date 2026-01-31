@@ -4,15 +4,17 @@ class_name ElevatorController extends StaticBody3D
 
 @export var door: ElevatorDoor
 @onready var panel_button_open: ElevatorButton = %PanelButtonOpen
+@onready var panel_button_close: ElevatorButton = %PanelButtonClose
 @onready var panel_button_warning: ElevatorButton = %PanelButtonWarning
 
-@export var close_wait_time := 2.0
+@export var close_wait_time := 8.0
 var target_floor: int
 
 var is_moving := false
 
 func _ready() -> void:
 	panel_button_open.action_button_pressed.connect(_on_open_button_pressed)
+	panel_button_close.action_button_pressed.connect(_on_close_button_pressed)
 	panel_button_warning.action_button_pressed.connect(_open_warning_button_pressed)
 	for btn in get_tree().get_nodes_in_group("floor_button"):
 		btn.floor_button_pressed.connect(_on_floor_button_pressed)
@@ -34,10 +36,10 @@ func _on_floor_button_pressed(_button: ElevatorButton, floor: int) -> void:
 	_start_close_timer()
 
 func _start_close_timer() -> void:
-	door.close()
 	var t = get_tree().create_timer(close_wait_time)
 	await t.timeout
 	building.move_to_floor(target_floor, Callable(self, "_on_arrived_at_floor"))
+	door.close()
 	
 func _on_arrived_at_floor() -> void:
 	is_moving = false
