@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://be6efm5l0t72c"]
+
+[ext_resource type="PackedScene" uid="uid://cx66n372vt3lt" path="res://models/props/vase/vase.glb" id="1_6ne3f"]
+
+[sub_resource type="Gradient" id="Gradient_e4rkv"]
+colors = PackedColorArray(0.6392157, 0.6627451, 0.39607844, 1, 0.4639777, 0.48247105, 0.26042065, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k1tjv"]
+noise_type = 3
+frequency = 0.1703
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fgd6l"]
+noise = SubResource("FastNoiseLite_k1tjv")
+color_ramp = SubResource("Gradient_e4rkv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyapk"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_fgd6l")
+
+[node name="vase" unique_id=1677734439 instance=ExtResource("1_6ne3f")]
+
+[node name="Cylinder" parent="." index="0" unique_id=748244029]
+surface_material_override/0 = SubResource("StandardMaterial3D_yyapk")
