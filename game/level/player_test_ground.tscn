@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="1_p2jlr"]
 [ext_resource type="PackedScene" uid="uid://c8b2srshfhg3u" path="res://game/elevator/elevator_controller.tscn" id="2_neiuf"]
+[ext_resource type="PackedScene" uid="uid://bkqhwakdgkinp" path="res://models/elevator/elevator.glb" id="3_6xa3n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,9 +17,6 @@ sky = SubResource("Sky_p2jlr")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sdid"]
-albedo_color = Color(0.52230215, 0.20365205, 0.38369045, 1)
-
 [node name="PlayerTestGround" type="Node3D" unique_id=12293222]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1649488051]
@@ -28,33 +26,11 @@ environment = SubResource("Environment_neiuf")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=22389944]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.072753906)
-material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(1.0009766, 0.21850586, 1.1728516)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=151287655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2300496, 0)
-material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(1.2763672, 0.21850586, 1.3730469)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1444463794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55908203, 0.55162823, -0.07426834)
-material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(0.15820313, 1.2992859, 1.1694336)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=724625159]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5489862, 0.5582353, -0.07011795)
-material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(0.15820313, 1.2860718, 1.1611328)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1828986238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013746619, 0.64948475, 0.42427677)
-material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(1.0290527, 1.1645508, 0.18945313)
-
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, 0.09904337)
 
 [node name="ElevatorController" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.47920665, 0.717022, -0.41356647)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6575477, 0.717022, -0.41356647)
+
+[node name="elevator" parent="." unique_id=1217569799 instance=ExtResource("3_6xa3n")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
