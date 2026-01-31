@@ -3,12 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://cxb4iianyx0lb" path="res://models/props/chair/chair.glb" id="1_kpmmu"]
 [ext_resource type="Script" uid="uid://d3yt2000l4vw2" path="res://models/props/chair/chair.gd" id="2_t0d5y"]
 
-[node name="chair" unique_id=1578998858 instance=ExtResource("1_kpmmu")]
-transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0)
+[node name="chair" unique_id=1338884411 instance=ExtResource("1_kpmmu")]
 
-[node name="StaticBody3D" parent="Chair" parent_id_path=PackedInt32Array(341040063) index="0" unique_id=294081156 groups=["chair"]]
+[node name="Chair" parent="." index="0" unique_id=1709539428]
+transform = Transform3D(1.143311, 0, 0, 0, 1.143311, 0, 0, 0, 1.143311, 0, 0, 0)
+
+[node name="StaticBody3D" parent="Chair" index="0" unique_id=1253438746]
 script = ExtResource("2_t0d5y")
 
 [node name="SitPosMarker" type="Marker3D" parent="." index="1" unique_id=1333786285]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5169654)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.48872846)

@@ -13,73 +13,97 @@
 
 [node name="TattisTestLevel" type="Node3D" unique_id=863637753]
 
-[node name="elevator" parent="." unique_id=397907603 instance=ExtResource("1_tmds7")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1214342623]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_shrink = 4
 
-[node name="elevator_button_panel" parent="elevator" unique_id=167842056 instance=ExtResource("2_wl8fw")]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=179451721]
+size = Vector2i(10, 10)
+
+[node name="elevator" parent="SubViewportContainer/SubViewport" unique_id=397907603 instance=ExtResource("1_tmds7")]
+
+[node name="elevator_button_panel" parent="SubViewportContainer/SubViewport/elevator" unique_id=167842056 instance=ExtResource("2_wl8fw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.419474, 1.3644487, -0.9161583)
 
-[node name="elevator_button" parent="elevator" unique_id=2015629847 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button" parent="SubViewportContainer/SubViewport/elevator" unique_id=2015629847 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.5677111, -0.7822161)
 
-[node name="elevator_button2" parent="elevator" unique_id=441977895 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button2" parent="SubViewportContainer/SubViewport/elevator" unique_id=441977895 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.5677111, -0.90556395)
 
-[node name="elevator_button3" parent="elevator" unique_id=839146467 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button3" parent="SubViewportContainer/SubViewport/elevator" unique_id=839146467 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.5677111, -1.0392293)
 
-[node name="elevator_button4" parent="elevator" unique_id=2022970194 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button4" parent="SubViewportContainer/SubViewport/elevator" unique_id=2022970194 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.4428176, -0.7822161)
 
-[node name="elevator_button5" parent="elevator" unique_id=218195490 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button5" parent="SubViewportContainer/SubViewport/elevator" unique_id=218195490 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.4428176, -0.90556395)
 
-[node name="elevator_button6" parent="elevator" unique_id=551738493 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button6" parent="SubViewportContainer/SubViewport/elevator" unique_id=551738493 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.4428176, -1.0392293)
 
-[node name="elevator_button7" parent="elevator" unique_id=973946742 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button7" parent="SubViewportContainer/SubViewport/elevator" unique_id=973946742 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.3047429, -0.7822161)
 
-[node name="elevator_button8" parent="elevator" unique_id=310589489 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button8" parent="SubViewportContainer/SubViewport/elevator" unique_id=310589489 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.3047429, -0.90556395)
 
-[node name="elevator_button9" parent="elevator" unique_id=954085792 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button9" parent="SubViewportContainer/SubViewport/elevator" unique_id=954085792 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.3047429, -1.0392293)
 
-[node name="elevator_button10" parent="elevator" unique_id=902707255 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button10" parent="SubViewportContainer/SubViewport/elevator" unique_id=902707255 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.7822161)
 
-[node name="elevator_button11" parent="elevator" unique_id=770389599 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button11" parent="SubViewportContainer/SubViewport/elevator" unique_id=770389599 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.90556395)
 
-[node name="elevator_button12" parent="elevator" unique_id=431038683 instance=ExtResource("3_i2j2k")]
+[node name="elevator_button12" parent="SubViewportContainer/SubViewport/elevator" unique_id=431038683 instance=ExtResource("3_i2j2k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.1798494, -1.0392293)
 
-[node name="Player" parent="." unique_id=207230869 instance=ExtResource("4_q6bga")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.178453, 0)
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=207230869 instance=ExtResource("4_q6bga")]
 collision_layer = 8
 collision_mask = 9
 walking_speed = 4.0
 
-[node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014993906, 1.1419629, -6.6226535)
+[node name="vase" parent="SubViewportContainer/SubViewport" unique_id=1677734439 instance=ExtResource("11_m07c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12996018, 1.3645139, -6.6420565)
 
-[node name="room" parent="." unique_id=872457426 instance=ExtResource("5_ac16t")]
+[node name="room" parent="SubViewportContainer/SubViewport" unique_id=872457426 instance=ExtResource("5_ac16t")]
 
-[node name="table" parent="room" unique_id=627162071 instance=ExtResource("10_ac16t")]
+[node name="table" parent="SubViewportContainer/SubViewport/room" unique_id=196752581 instance=ExtResource("10_ac16t")]
 transform = Transform3D(1.3261492, 0, 0, 0, 1.3261492, 0, 0, 0, 1.3261492, 0, 0, -6.6469293)
 
-[node name="CeilingFan" parent="room" unique_id=1371555635 instance=ExtResource("8_wl8fw")]
+[node name="CeilingFan" parent="SubViewportContainer/SubViewport/room" unique_id=1371555635 instance=ExtResource("8_wl8fw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06572044, 3.4282193, -4.6662846)
 
-[node name="chair" parent="room" unique_id=1578998858 instance=ExtResource("10_q6bga")]
-transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, 0, 0, -3.8074167)
+[node name="chair" parent="SubViewportContainer/SubViewport/room" unique_id=1338884411 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.0560443)
 
-[node name="chair2" parent="room" unique_id=24705436 instance=ExtResource("10_q6bga")]
-transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, -1.249117, 0, -3.8074167)
+[node name="chair2" parent="SubViewportContainer/SubViewport/room" unique_id=2053015875 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6660807, 0, -2.0560443)
 
-[node name="chair3" parent="room" unique_id=135199621 instance=ExtResource("10_q6bga")]
-transform = Transform3D(1.4053869, 0, 0, 0, 1.4053869, 0, 0, 0, 1.4053869, 1.1702605, 0, -3.8074167)
+[node name="chair3" parent="SubViewportContainer/SubViewport/room" unique_id=1760211369 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6402042, 0, -2.0560443)
 
-[node name="npc" parent="." unique_id=176283948 instance=ExtResource("10_i2j2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2314682, -2.9445095)
-move_speed = 1.5
+[node name="chair4" parent="SubViewportContainer/SubViewport/room" unique_id=1038042215 instance=ExtResource("10_q6bga")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.466373, 0, -4.7262664)
+
+[node name="chair5" parent="SubViewportContainer/SubViewport/room" unique_id=857470620 instance=ExtResource("10_q6bga")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.466373, 0, -3.0601857)
+
+[node name="chair6" parent="SubViewportContainer/SubViewport/room" unique_id=896420330 instance=ExtResource("10_q6bga")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.466373, 0, -6.3664703)
+
+[node name="chair7" parent="SubViewportContainer/SubViewport/room" unique_id=1171257662 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.4170775, 0, -4.7090154)
+
+[node name="chair8" parent="SubViewportContainer/SubViewport/room" unique_id=561882495 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.4170778, 0, -6.3750963)
+
+[node name="chair9" parent="SubViewportContainer/SubViewport/room" unique_id=922544540 instance=ExtResource("10_q6bga")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.4170773, 0, -3.0688114)
+
+[node name="npc" parent="SubViewportContainer/SubViewport" unique_id=1760407013 instance=ExtResource("10_i2j2k")]
+transform = Transform3D(1.1915457, 0, 0, 0, 1.1915457, 0, 0, 0, 1.1915457, 0, 0, -3.9064527)

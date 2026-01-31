@@ -25,8 +25,9 @@ extends CharacterBody3D
 var animator: AnimationPlayer
 
 @onready var state_timer: Timer = %StateTimer
+@onready var head_look_at: LookAtModifier3D = %HeadLookAt
 
-var current_state: State = -1
+var current_state: State = 500
 enum State {
 	IDLE,
 	WALK,
@@ -34,7 +35,8 @@ enum State {
 }
 
 var move_dir: Vector3 = Vector3.ZERO
-var sit_pos: Vector3
+var chair: Chair
+var player: Player
 
 func _ready() -> void:
 	for child in get_children():
@@ -54,13 +56,14 @@ func _physics_process(delta: float) -> void:
 		State.WALK:
 			velocity = velocity.lerp(move_dir * move_speed, move_speed_lerp * delta)
 			handle_looking(delta)
+			velocity.y += get_gravity().y * delta
 			
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				
 				var collider = collision.get_collider()
 				if collider is Chair:
-					sit_pos = collider.sit_pos_marker.global_position
+					chair = collider
 					change_state(State.SIT)
 				
 				var normal: Vector3 = collision.get_normal()
@@ -69,11 +72,12 @@ func _physics_process(delta: float) -> void:
 					move_dir.y = 0
 					#move_dir.x += randf_range(-0.1, 0.1)
 					#move_dir.z += randf_range(-0.1, 0.1)
-		
+			
 		State.SIT:
-			pass
-	
-	velocity.y += get_gravity().y * delta
+			look_at(global_position - chair.global_transform.basis.z)
+			global_position = global_position.move_toward(chair.sit_pos_marker.global_position, move_speed_lerp * delta)
+			
+
 	move_and_slide()
 
 
@@ -106,8 +110,7 @@ func change_state(new_state: State) -> void:
 			state_timer.start()
 
 		State.SIT:
-			var t = create_tween()
-			t.tween_property(self, "global_position", sit_pos, global_position.distance_to(sit_pos))
+			velocity = Vector3.ZERO
 			animator.play("sit")
 			state_timer.wait_time = randf_range(min_sit_time, max_sit_time)
 			state_timer.start()
@@ -135,3 +138,13 @@ func handle_looking(delta: float) -> void:
 
 func get_random_dir() -> Vector3:
 	return Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
+
+
+func _on_player_area_body_entered(body: Node3D) -> void:
+	if body is Player:
+		player = body
+
+
+func _on_player_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		player = null
