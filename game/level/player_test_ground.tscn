@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="1_p2jlr"]
 [ext_resource type="PackedScene" uid="uid://c8b2srshfhg3u" path="res://game/elevator/elevator_controller.tscn" id="2_neiuf"]
+[ext_resource type="PackedScene" uid="uid://db6c0wsjpls4i" path="res://game/elevator/elevator_door.tscn" id="3_6xa3n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -56,5 +57,9 @@ size = Vector3(1.0290527, 1.1645508, 0.18945313)
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, 0.09904337)
 
-[node name="ElevatorController" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.47920665, 0.717022, -0.41356647)
+[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("door") instance=ExtResource("2_neiuf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.47920665, 0.6896894, -0.37361676)
+door = NodePath("../ElevatorDoor")
+
+[node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("3_6xa3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41154206, 0.61622304, -0.61130553)

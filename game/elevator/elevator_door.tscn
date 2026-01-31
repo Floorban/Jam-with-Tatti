@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://db6c0wsjpls4i"]
+
+[ext_resource type="Script" uid="uid://b353fl0q7dr7y" path="res://game/elevator/elevator_door.gd" id="1_pum4f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_35qn8"]
+size = Vector3(1.01, 1.06, 0.045)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pum4f"]
+size = Vector3(1.01, 1.06, 0.045)
+
+[node name="ElevatorDoor" type="CharacterBody3D" unique_id=110669702]
+script = ExtResource("1_pum4f")
+
+[node name="MeshRoot" type="Node3D" parent="." unique_id=787451339]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshRoot" unique_id=655883049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5110382, 0, 0)
+mesh = SubResource("BoxMesh_35qn8")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1847286280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.511, 0, 0)
+shape = SubResource("BoxShape3D_pum4f")
+
+[node name="DoorRayCast" type="RayCast3D" parent="." unique_id=1345717439]
+target_position = Vector3(1, 0, 0)

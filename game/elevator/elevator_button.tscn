@@ -37,7 +37,7 @@ disable_fog = true
 albedo_color = Color(0.9435258, 0.85850763, 0.14769274, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8kow"]
-size = Vector3(0.045166016, 0.05053711, 0.01)
+size = Vector3(0.052978516, 0.052978516, 0.01977539)
 
 [node name="ElevatorButton" type="StaticBody3D" unique_id=1052726071]
 collision_layer = 2
