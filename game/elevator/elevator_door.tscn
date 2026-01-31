@@ -1,24 +1,61 @@
-[gd_scene format=3 uid="uid://db6c0wsjpls4i"]
+[gd_scene format=4 uid="uid://db6c0wsjpls4i"]
 
 [ext_resource type="Script" uid="uid://b353fl0q7dr7y" path="res://game/elevator/elevator_door.gd" id="1_pum4f"]
+[ext_resource type="Texture2D" uid="uid://cqruufh5ch77r" path="res://models/elevator/elevator_metal_0054_color_1k.jpg-metal_0054_opacity_1k.png" id="2_081tw"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_35qn8"]
-size = Vector3(1.01, 1.06, 0.045)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0np"]
+resource_name = "door"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_081tw")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xvbgv"]
+_surfaces = [{
+"aabb": AABB(-0.41948718, 0, -0.018595684, 0.86396426, 1.346281, 0.03719142),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "door",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA5////wAAAAAXAAAAAAD/////AAAAAP//AAD//wAA///n////AAD//xcAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y0l1l"]
+resource_name = "elevator_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.41948718, 0, -0.018595684, 0.86396426, 1.346281, 0.03719142),
+"attribute_data": PackedByteArray("3Hz//yKDAADcfAAAIoP///UZ//8J5gAA9RkAAAnm//8ig///3HwAACKDAADcfP//Ceb///UZAAAJ5gAA9Rn///UZ3HwJ5iKDCebcfPUZIoMJ5tx89Rkig/UZ3HwJ5iKD"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_md0np"),
+"name": "door",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//9xsAAP//AAC9DgAA5////4ocAAAXAAAAFA4AABcAAAApHv////8AAKweAAD//wAArB7//xcAAAApHv//FwAAAEnc///n////obH/////AAA43P//AAD//4qx//8AAP//bqgAAOf///8PqP//5////w+oAAAAAP//bqgAABcAAAApHv//AAD//5BX//8XAAAAKR4AAAAA//+QV/////8AAFLhAADn////D6gAAP//AABS4f//5////w+o1lnYb8bkZEJ18Fgm4D1UZKcniYtE2El0SPS6p4kLV1gaX2AxLsZsF22xNSCKZzVGzC6iPZXQ3cIgvZVQXELMrqcniYvMLqI9iQtXWFxCzK5E2El0ldDdwkj0uqcgvZVQ")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xvbgv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pum4f"]
-size = Vector3(1.01, 1.06, 0.045)
+size = Vector3(0.86535156, 1.3423779, 0.045)
 
 [node name="ElevatorDoor" type="CharacterBody3D" unique_id=110669702]
 script = ExtResource("1_pum4f")
 
 [node name="MeshRoot" type="Node3D" parent="." unique_id=787451339]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshRoot" unique_id=655883049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5110382, 0, 0)
-mesh = SubResource("BoxMesh_35qn8")
+[node name="DoorMesh" type="MeshInstance3D" parent="MeshRoot" unique_id=966218899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42840526, -0.5299411, 0)
+mesh = SubResource("ArrayMesh_y0l1l")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1847286280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.511, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43867576, 0.14118898, 0)
 shape = SubResource("BoxShape3D_pum4f")
 
 [node name="DoorRayCast" type="RayCast3D" parent="." unique_id=1345717439]
