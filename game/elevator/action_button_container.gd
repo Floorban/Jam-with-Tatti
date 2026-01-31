@@ -6,4 +6,4 @@ func _ready() -> void:
 		if child is ElavatorButton:
 			child.button_type = child.ButtonType.ACTION_BUTTON
 		else:
-			push_error("Invalid child in ", name, ", :", child.name, "!")
+			push_error("Invalid child in ", name, ",: ", child.name, "!")

@@ -7,4 +7,4 @@ func _ready() -> void:
 			child.button_type = child.ButtonType.FLOOR_BUTTON
 			child.set_floor(child.get_index())
 		else:
-			push_error("Invalid child in ", name, ", :", child.name, "!")
+			push_error("Invalid child in ", name, ",: ", child.name, "!")
