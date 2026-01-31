@@ -29,8 +29,9 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, 0.09904337)
 
-[node name="ElevatorController" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
+[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("door") instance=ExtResource("2_neiuf")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6575477, 0.717022, -0.41356647)
+door = NodePath("")
 
 [node name="elevator" parent="." unique_id=1217569799 instance=ExtResource("3_6xa3n")]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
