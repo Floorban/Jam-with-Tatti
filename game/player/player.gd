@@ -42,4 +42,11 @@ func update_player_horizontal(delta: float) -> void:
 	
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed * 0.8
+	
+	apply_gravity(delta)
+	
 	move_and_slide()
+
+
+func apply_gravity(delta: float) -> void:
+	velocity.y += get_gravity().y * delta
