@@ -18,6 +18,8 @@ script = ExtResource("2_w8j5a")
 [node name="HeadLookAt" type="LookAtModifier3D" parent="metarig/Skeleton3D" parent_id_path=PackedInt32Array(160413940) index="0" unique_id=2098996641]
 unique_name_in_owner = true
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.8715934, 0)
+bone_name = "neck"
+bone = 5
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=570913757]
 deterministic = true

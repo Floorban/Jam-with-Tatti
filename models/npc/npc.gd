@@ -36,6 +36,7 @@ enum State {
 
 var move_dir: Vector3 = Vector3.ZERO
 var chair: Chair
+var previous_chair: Chair
 var player: Player
 
 func _ready() -> void:
@@ -63,6 +64,9 @@ func _physics_process(delta: float) -> void:
 				
 				var collider = collision.get_collider()
 				if collider is Chair:
+					if collider == previous_chair:
+						continue
+					
 					chair = collider
 					change_state(State.SIT)
 				
@@ -77,7 +81,9 @@ func _physics_process(delta: float) -> void:
 			look_at(global_position - chair.global_transform.basis.z)
 			global_position = global_position.move_toward(chair.sit_pos_marker.global_position, move_speed_lerp * delta)
 			
-
+	if player:
+		head_look_at.target_node = player.head.get_path()
+	
 	move_and_slide()
 
 
@@ -88,6 +94,7 @@ func change_state(new_state: State) -> void:
 	
 	match current_state:
 		State.SIT:
+			previous_chair = chair
 			animator.play_backwards("sit")
 			await animator.animation_finished
 	
@@ -136,8 +143,13 @@ func handle_looking(delta: float) -> void:
 	look_at(target_look_dir)
 
 
+
 func get_random_dir() -> Vector3:
 	return Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
+
+
+
+
 
 
 func _on_player_area_body_entered(body: Node3D) -> void:
