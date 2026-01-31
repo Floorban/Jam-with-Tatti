@@ -18,6 +18,7 @@ func _ready() -> void:
 	_box_shape = collision.shape as BoxShape3D
 	_closed_size_x = _box_shape.size.x
 	_closed_pos_x = collision.position.x
+	open()
 
 func _process(_delta: float) -> void:
 	if door_ray_cast.is_colliding():

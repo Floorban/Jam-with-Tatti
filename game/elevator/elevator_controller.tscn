@@ -58,6 +58,8 @@ script = ExtResource("5_mcpym")
 [node name="PanelButtonOpen" parent="ActionButtons" unique_id=1052726071 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.09911737, 0.00860551)
+visible = false
+collision_layer = 0
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonOpen" index="3" unique_id=687128113]
 text = "< | >"
@@ -65,14 +67,12 @@ font_size = 20
 
 [node name="PanelButtonClose" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11480922, 0.09911737, -0.002721779)
-visible = false
-collision_layer = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.09911737, 0.00860551)
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonClose" index="3" unique_id=687128113]
-text = ">|<
+text = "> | <
 "
-font_size = 24
+font_size = 20
 
 [node name="PanelButtonWarning" parent="ActionButtons" unique_id=1556346262 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
