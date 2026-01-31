@@ -1,4 +1,5 @@
-class_name ElavatorButton extends StaticBody3D
+class_name ElevatorButton 
+extends StaticBody3D
 
 
 var button_type: ButtonType
@@ -25,7 +26,7 @@ func set_floor(new_floor: int) -> void:
 	button_action_label.text = str(floor)
 
 
-func set_button_Type(new_button_type: ButtonType) -> void:
+func set_button_type(new_button_type: ButtonType) -> void:
 	button_type = new_button_type
 
 

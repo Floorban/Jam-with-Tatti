@@ -9,7 +9,7 @@ var player: Player
 var controlling := false
 var camera_transitioning := false
 
-var hovring_button: ElavatorButton
+var hovring_button: ElevatorButton
 
 func _ready() -> void:
 	interaction_component.interact = Callable(self, "_on_interact_elevator")
@@ -55,7 +55,7 @@ func _physics_process(_delta: float) -> void:
 	p.collision_mask = 1 << PANEL_PHYSICS_LAYER - 1
 	var result := space_state.intersect_ray(p)
 	if result:
-		var btn : ElavatorButton = result.collider
+		var btn : ElevatorButton = result.collider
 		if not btn:
 			return
 		if hovring_button and btn != hovring_button: 
