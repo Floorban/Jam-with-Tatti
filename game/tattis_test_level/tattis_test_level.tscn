@@ -95,4 +95,4 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.4
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.4170773, 0, -3.0688114)
 
 [node name="npc" parent="." unique_id=1760407013 instance=ExtResource("10_i2j2k")]
-transform = Transform3D(1.1915457, 0, 0, 0, 1.1915457, 0, 0, 0, 1.1915457, 0, 0, -3.9064527)
+transform = Transform3D(1.2440445, 0, 0, 0, 1.2440445, 0, 0, 0, 1.2440445, 0, 0, -3.4248743)
