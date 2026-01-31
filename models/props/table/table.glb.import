@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b3uyd2kjs7vi0"
-path="res://.godot/imported/room.glb-ead2fffc2d6d880c6cefdeea9e27fc08.scn"
+uid="uid://bbf2bb2a7q2ac"
+path="res://.godot/imported/table.glb-bdd20e24b10cc960748ae39ebdce3052.scn"
 
 [deps]
 
-source_file="res://models/room/room.glb"
-dest_files=["res://.godot/imported/room.glb-ead2fffc2d6d880c6cefdeea9e27fc08.scn"]
+source_file="res://models/props/table/table.glb"
+dest_files=["res://.godot/imported/table.glb-bdd20e24b10cc960748ae39ebdce3052.scn"]
 
 [params]
 
@@ -36,18 +36,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path="res://materials"
+materials/extract_path=""
 _subresources={
 "materials": {
-"room_floor": {
+"wood": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/wood_planks.tres",
-"use_external/path": "uid://yg2j6j35d7xf"
-},
-"room_wall": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://materials/wallpaper_old_yellow.tres",
-"use_external/path": "uid://btn6473ciir2c"
+"use_external/fallback_path": "res://materials/wood.tres",
+"use_external/path": "uid://cn0tieqmf27id"
 }
 }
 }

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://wf6ilqjmifhu"]
+
+[ext_resource type="PackedScene" uid="uid://bkqhwakdgkinp" path="res://models/elevator/elevator.glb" id="1_tmds7"]
+[ext_resource type="PackedScene" uid="uid://dof8hwprwwlse" path="res://models/elevator/elevator_button_panel.glb" id="2_wl8fw"]
+[ext_resource type="PackedScene" uid="uid://b4eugtsd6dowa" path="res://models/elevator/elevator_button.glb" id="3_i2j2k"]
+[ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="4_q6bga"]
+[ext_resource type="PackedScene" uid="uid://b3uyd2kjs7vi0" path="res://models/room/room.glb" id="5_ac16t"]
+[ext_resource type="PackedScene" uid="uid://yxuw7vomfv6" path="res://models/ceiling_fan/ceiling_fan_base.glb" id="6_m07c5"]
+[ext_resource type="PackedScene" uid="uid://bys1dm7cw40cq" path="res://models/ceiling_fan/ceiling_fan_blades.glb" id="7_c1qpo"]
+[ext_resource type="Script" uid="uid://cclrtud1vtafg" path="res://game/room/ceiling_fan_blades.gd" id="8_iaxp8"]
+
+[node name="TattisTestLevel" type="Node3D" unique_id=863637753]
+
+[node name="elevator" parent="." unique_id=377518606 instance=ExtResource("1_tmds7")]
+
+[node name="elevator_button_panel" parent="elevator" unique_id=167842056 instance=ExtResource("2_wl8fw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.419474, 1.3644487, -0.9161583)
+
+[node name="elevator_button" parent="elevator" unique_id=2015629847 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.5677111, -0.7822161)
+
+[node name="elevator_button2" parent="elevator" unique_id=441977895 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.5677111, -0.90556395)
+
+[node name="elevator_button3" parent="elevator" unique_id=839146467 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.5677111, -1.0392293)
+
+[node name="elevator_button4" parent="elevator" unique_id=2022970194 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.4428176, -0.7822161)
+
+[node name="elevator_button5" parent="elevator" unique_id=218195490 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.4428176, -0.90556395)
+
+[node name="elevator_button6" parent="elevator" unique_id=551738493 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.4428176, -1.0392293)
+
+[node name="elevator_button7" parent="elevator" unique_id=973946742 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.3047429, -0.7822161)
+
+[node name="elevator_button8" parent="elevator" unique_id=310589489 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.3047429, -0.90556395)
+
+[node name="elevator_button9" parent="elevator" unique_id=954085792 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.3047429, -1.0392293)
+
+[node name="elevator_button10" parent="elevator" unique_id=902707255 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.7822161)
+
+[node name="elevator_button11" parent="elevator" unique_id=770389599 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.90556395)
+
+[node name="elevator_button12" parent="elevator" unique_id=431038683 instance=ExtResource("3_i2j2k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.1798494, -1.0392293)
+
+[node name="Player" parent="." unique_id=207230869 instance=ExtResource("4_q6bga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="room" parent="." unique_id=1317536530 instance=ExtResource("5_ac16t")]
+
+[node name="ceiling_fan_base" parent="room" unique_id=1719097484 instance=ExtResource("6_m07c5")]
+
+[node name="ceiling_fan_blades" parent="room/ceiling_fan_base" unique_id=1366519778 instance=ExtResource("7_c1qpo")]
+
+[node name="CeilingFanBlades" parent="room/ceiling_fan_base/ceiling_fan_blades" index="0" unique_id=1271518166]
+script = ExtResource("8_iaxp8")
+rotation_speed = 25.0
+
+[editable path="room/ceiling_fan_base/ceiling_fan_blades"]
