@@ -9,6 +9,7 @@ enum ButtonType {
 
 var floor: int
 @onready var outline: MeshInstance3D = %Outline
+@onready var button_action_label: Label3D = %ButtonActionLabel
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func set_floor(new_floor: int) -> void:
 		return
 	
 	floor = new_floor
+	button_action_label.text = str(floor)
 
 
 func set_button_Type(new_button_type: ButtonType) -> void:

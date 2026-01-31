@@ -53,3 +53,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ylqwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1965359733]
 shape = SubResource("BoxShape3D_r8kow")
+
+[node name="ButtonActionLabel" type="Label3D" parent="." unique_id=687128113]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0051555037)
+layers = 2
+pixel_size = 0.001
+texture_filter = 0
+text = "test
+"
+outline_size = 16

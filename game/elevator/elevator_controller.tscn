@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="1_msh32"]
 [ext_resource type="Script" uid="uid://cqvdgwr643m0k" path="res://game/elevator/elevator_controller.gd" id="1_ycwdn"]
-[ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/panel_button.tscn" id="3_02lqp"]
+[ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/elevator_button.tscn" id="3_02lqp"]
 [ext_resource type="Script" uid="uid://cmnqllen0cteq" path="res://game/elevator/floor_button_container.gd" id="3_p81tc"]
 [ext_resource type="Script" uid="uid://bc6vv5td7j2wd" path="res://game/elevator/action_button_container.gd" id="5_mcpym"]
 
