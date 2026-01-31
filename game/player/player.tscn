@@ -1,26 +1,66 @@
 [gd_scene format=3 uid="uid://b12fhqld0phdm"]
 
 [ext_resource type="Script" uid="uid://bm8b8rstk5ylw" path="res://game/player/player.gd" id="1_obar5"]
+[ext_resource type="PackedScene" uid="uid://jjk0on0kyjeu" path="res://game/player/camera_controller.tscn" id="2_b2mth"]
+[ext_resource type="Script" uid="uid://cshqxit27dusc" path="res://game/interaction/interaction_controller.gd" id="3_8soms"]
+[ext_resource type="Texture2D" uid="uid://cb5ym3wx4ds4h" path="res://sprites/reticle_default.png" id="4_5fytw"]
+[ext_resource type="Texture2D" uid="uid://brhnbl3gxaoe6" path="res://sprites/reticle_can_interact.png" id="5_4ste8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3kcjs"]
 
-[node name="Player" type="CharacterBody3D" unique_id=207230869]
+[node name="Player" type="CharacterBody3D" unique_id=207230869 groups=["player"]]
 script = ExtResource("1_obar5")
 
 [node name="Head" type="Node3D" parent="." unique_id=1497549582]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="PlayerCamera" type="Camera3D" parent="Head" unique_id=1559893409]
-unique_name_in_owner = true
-current = true
-fov = 90.0
+[node name="CameraController" parent="Head" unique_id=1081461328 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_b2mth")]
+player_controller = NodePath("../..")
 
-[node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=2136369775]
+[node name="InteractionRay" type="RayCast3D" parent="Head/CameraController" unique_id=2136369775]
 unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
 
 [node name="Hand" type="Marker3D" parent="Head" unique_id=21955999]
 unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1080405186]
 shape = SubResource("CapsuleShape3D_3kcjs")
+
+[node name="InteractionController" type="Node" parent="." unique_id=1300463513 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+script = ExtResource("3_8soms")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://cshqxit27dusc"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1720417520]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1127114489]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReticleDefault" type="TextureRect" parent="CanvasLayer/Control" unique_id=1557482631]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_5fytw")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ReticleCanInteract" type="TextureRect" parent="CanvasLayer/Control" unique_id=1723250826]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_4ste8")
+expand_mode = 1
+stretch_mode = 3

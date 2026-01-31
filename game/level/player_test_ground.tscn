@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7njr4atax4ax"]
 
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="1_p2jlr"]
+[ext_resource type="PackedScene" uid="uid://c8b2srshfhg3u" path="res://game/interaction/interactables/interactable_test_obj.tscn" id="2_neiuf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,3 +45,6 @@ size = Vector3(0.21118164, 1, 0.56933594)
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1202470677]
 transform = Transform3D(0.53246266, 0, -0.8464535, 0, 1, 0, 0.8464535, 0, 0.53246266, 2.1536262, 0.7671232, -1.0518476)
 size = Vector3(0.21118164, 1.050293, 0.56933594)
+
+[node name="InteractableTestObj" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4423704, 0.64364815, -2.2925844)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8b2srshfhg3u"]
+
+[ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="1_msh32"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0gx44"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_msh32"]
+
+[node name="InteractableTestObj" type="StaticBody3D" unique_id=418184877]
+collision_layer = 2
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1376852725]
+mesh = SubResource("BoxMesh_0gx44")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=822883878]
+shape = SubResource("BoxShape3D_msh32")
+
+[node name="InteractionComponent" parent="." unique_id=194650918 node_paths=PackedStringArray("object_ref") instance=ExtResource("1_msh32")]
+object_ref = NodePath("..")
