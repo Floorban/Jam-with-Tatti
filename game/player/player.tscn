@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b12fhqld0phdm"]
+
+[ext_resource type="Script" uid="uid://bm8b8rstk5ylw" path="res://game/player/player.gd" id="1_obar5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3kcjs"]
+
+[node name="Player" type="CharacterBody3D" unique_id=207230869]
+script = ExtResource("1_obar5")
+
+[node name="Head" type="Node3D" parent="." unique_id=1497549582]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="PlayerCamera" type="Camera3D" parent="Head" unique_id=1559893409]
+unique_name_in_owner = true
+current = true
+fov = 90.0
+
+[node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=2136369775]
+unique_name_in_owner = true
+
+[node name="Hand" type="Marker3D" parent="Head" unique_id=21955999]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1080405186]
+shape = SubResource("CapsuleShape3D_3kcjs")

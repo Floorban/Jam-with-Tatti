@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b7njr4atax4ax"]
+
+[ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="1_p2jlr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_p2jlr"]
+sky_material = SubResource("ProceduralSkyMaterial_3sdid")
+
+[sub_resource type="Environment" id="Environment_neiuf"]
+background_mode = 2
+sky = SubResource("Sky_p2jlr")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sdid"]
+albedo_color = Color(0.52230215, 0.20365205, 0.38369045, 1)
+
+[node name="PlayerTestGround" type="Node3D" unique_id=12293222]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1649488051]
+environment = SubResource("Environment_neiuf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=536542615]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=22389944]
+material_override = SubResource("StandardMaterial3D_3sdid")
+size = Vector3(6.9072266, 0.21850586, 7.1467285)
+
+[node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1725996332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2241359, 0.7922697, 0)
+size = Vector3(0.21118164, 1, 0.56933594)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=479614253]
+transform = Transform3D(0.83303714, 0.5532171, 0, -0.5532171, 0.83303714, 0, 0, 0, 1, 1.4814091, 0.7922697, 1.9528264)
+size = Vector3(0.21118164, 1, 0.56933594)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1202470677]
+transform = Transform3D(0.53246266, 0, -0.8464535, 0, 1, 0, 0.8464535, 0, 0.53246266, 2.1536262, 0.7671232, -1.0518476)
+size = Vector3(0.21118164, 1.050293, 0.56933594)
