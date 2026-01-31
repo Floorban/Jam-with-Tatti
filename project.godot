@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Global Game Jam 2026"
+config/tags=PackedStringArray("jam")
 run/main_scene="uid://b7njr4atax4ax"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
-config/tags=PackedStringArray("jam")
 
 [autoload]
 
