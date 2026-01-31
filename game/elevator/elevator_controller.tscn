@@ -19,7 +19,7 @@ size = Vector3(0.3, 0.5, 0.02)
 [sub_resource type="ImageTexture" id="ImageTexture_p81tc"]
 
 [node name="ElevatorController" type="StaticBody3D" unique_id=418184877]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ycwdn")
 
