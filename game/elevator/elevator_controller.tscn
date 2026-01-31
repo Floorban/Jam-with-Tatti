@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="1_msh32"]
 [ext_resource type="Script" uid="uid://cqvdgwr643m0k" path="res://game/elevator/elevator_controller.gd" id="1_ycwdn"]
 [ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/panel_button.tscn" id="3_02lqp"]
-[ext_resource type="Script" uid="uid://cmnqllen0cteq" path="res://game/elevator/floor_buttons.gd" id="3_p81tc"]
+[ext_resource type="Script" uid="uid://cmnqllen0cteq" path="res://game/elevator/floor_button_container.gd" id="3_p81tc"]
+[ext_resource type="Script" uid="uid://bc6vv5td7j2wd" path="res://game/elevator/action_button_container.gd" id="5_mcpym"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02lqp"]
 shading_mode = 0
@@ -59,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010016635, 0.012037396, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08642519, 0.012037396, 0.013151169)
 
 [node name="ActionButtons" type="Node3D" parent="." unique_id=1657357019]
+script = ExtResource("5_mcpym")
 
 [node name="PanelButton1" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.15414539, 0.013151169)
