@@ -9,7 +9,7 @@ class_name ElevatorDoor extends CharacterBody3D
 @export var move_duration := 1.5
 
 var door_tween: Tween
-var is_open := true
+var is_open := false
 var _box_shape: BoxShape3D
 var _closed_size_x: float
 var _closed_pos_x: float
@@ -18,21 +18,21 @@ func _ready() -> void:
 	_box_shape = collision.shape as BoxShape3D
 	_closed_size_x = _box_shape.size.x
 	_closed_pos_x = collision.position.x
+	open()
+
+func _process(_delta: float) -> void:
+	if door_ray_cast.is_colliding():
+		open()
 
 func open() -> void:
 	if is_open:
-		return
-
-	# Cancel open if something is blocking the door
-	if door_ray_cast.is_colliding():
-		close()
 		return
 
 	is_open = true
 	door_move_door_tween(open_scale_x)
 
 func close() -> void:
-	if not is_open:
+	if not is_open or door_ray_cast.is_colliding():
 		return
 
 	is_open = false

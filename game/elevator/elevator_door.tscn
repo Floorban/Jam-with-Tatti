@@ -12,7 +12,7 @@ roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xvbgv"]
 _surfaces = [{
-"aabb": AABB(-0.41948718, 0, -0.018595684, 0.86396426, 1.346281, 0.03719142),
+"aabb": AABB(-0.83897436, -2.3841858e-07, -1.5825548, 1.7279285, 2.692562, 0.0743829),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
@@ -24,10 +24,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_y0l1l"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_081tw"]
 resource_name = "elevator_Cube_003"
 _surfaces = [{
-"aabb": AABB(-0.41948718, 0, -0.018595684, 0.86396426, 1.346281, 0.03719142),
+"aabb": AABB(-0.83897436, -2.3841858e-07, -1.5825548, 1.7279285, 2.692562, 0.0743829),
 "attribute_data": PackedByteArray("3Hz//yKDAADcfAAAIoP///UZ//8J5gAA9RkAAAnm//8ig///3HwAACKDAADcfP//Ceb///UZAAAJ5gAA9Rn///UZ3HwJ5iKDCebcfPUZIoMJ5tx89Rkig/UZ3HwJ5iKD"),
 "format": 34896613399,
 "index_count": 36,
@@ -43,20 +43,22 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xvbgv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pum4f"]
-size = Vector3(0.86535156, 1.3423779, 0.045)
+size = Vector3(1.7022071, 2.7092285, 0.045)
 
 [node name="ElevatorDoor" type="CharacterBody3D" unique_id=110669702]
 script = ExtResource("1_pum4f")
 
 [node name="MeshRoot" type="Node3D" parent="." unique_id=787451339]
 
-[node name="DoorMesh" type="MeshInstance3D" parent="MeshRoot" unique_id=966218899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42840526, -0.5299411, 0)
-mesh = SubResource("ArrayMesh_y0l1l")
+[node name="DoorMesh" type="MeshInstance3D" parent="MeshRoot" unique_id=772850499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83011985, -1.2, 1.55)
+mesh = SubResource("ArrayMesh_081tw")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1847286280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43867576, 0.14118898, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85710347, 0.14118898, 0)
 shape = SubResource("BoxShape3D_pum4f")
 
 [node name="DoorRayCast" type="RayCast3D" parent="." unique_id=1345717439]
-target_position = Vector3(1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13831106, 0, 0)
+target_position = Vector3(2.2, 0, 0)
+collision_mask = 8
