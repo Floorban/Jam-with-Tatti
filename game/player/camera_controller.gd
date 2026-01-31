@@ -5,7 +5,7 @@ class_name CameraController extends Node3D
 @export_category("Camera Settings")
 var can_control := true
 @onready var player_camera: Camera3D = %PlayerCamera
-@export var normal_sensitivity: float = 0.01
+@export var normal_sensitivity: float = 0.002
 @onready var current_sensitivity: float = normal_sensitivity
 var sensitivity_restore_speed: float = 4.0
 var sensitivity_fading_in: bool = false

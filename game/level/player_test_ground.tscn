@@ -29,11 +29,32 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=22389944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.072753906)
 material_override = SubResource("StandardMaterial3D_3sdid")
-size = Vector3(6.9072266, 0.21850586, 7.1467285)
+size = Vector3(1.0009766, 0.21850586, 1.1728516)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=151287655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2300496, 0)
+material_override = SubResource("StandardMaterial3D_3sdid")
+size = Vector3(1.2763672, 0.21850586, 1.3730469)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1444463794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55908203, 0.55162823, -0.07426834)
+material_override = SubResource("StandardMaterial3D_3sdid")
+size = Vector3(0.15820313, 1.2992859, 1.1694336)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=724625159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5489862, 0.5582353, -0.07011795)
+material_override = SubResource("StandardMaterial3D_3sdid")
+size = Vector3(0.15820313, 1.2860718, 1.1611328)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1828986238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013746619, 0.64948475, 0.42427677)
+material_override = SubResource("StandardMaterial3D_3sdid")
+size = Vector3(1.0290527, 1.1645508, 0.18945313)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, -1.7799746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2773466, 0, 0.09904337)
 
-[node name="InteractableTestObj" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14864612, 0.73698413, -2.2925844)
+[node name="ElevatorController" parent="." unique_id=418184877 instance=ExtResource("2_neiuf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.47920665, 0.717022, -0.41356647)

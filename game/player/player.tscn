@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://bm8b8rstk5ylw" path="res://game/player/player.gd" id="1_obar5"]
 [ext_resource type="PackedScene" uid="uid://jjk0on0kyjeu" path="res://game/player/camera_controller.tscn" id="2_b2mth"]
 [ext_resource type="Script" uid="uid://cshqxit27dusc" path="res://game/interaction/interaction_controller.gd" id="3_8soms"]
-[ext_resource type="Texture2D" uid="uid://cb5ym3wx4ds4h" path="res://sprites/reticle_default.png" id="4_5fytw"]
 [ext_resource type="Texture2D" uid="uid://brhnbl3gxaoe6" path="res://sprites/reticle_can_interact.png" id="5_4ste8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3kcjs"]
 
 [node name="Player" type="CharacterBody3D" unique_id=207230869 groups=["player"]]
 script = ExtResource("1_obar5")
+walking_speed = 0.8
+sprinting_speed = 1.5
 
 [node name="Head" type="Node3D" parent="." unique_id=1497549582]
 unique_name_in_owner = true
@@ -51,16 +52,16 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_5fytw")
 expand_mode = 1
 stretch_mode = 3
 
 [node name="ReticleCanInteract" type="TextureRect" parent="CanvasLayer/Control" unique_id=1723250826]
 unique_name_in_owner = true
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 15.0
+offset_bottom = 15.0
 texture = ExtResource("5_4ste8")
 expand_mode = 1
-stretch_mode = 3
+stretch_mode = 4
