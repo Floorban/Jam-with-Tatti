@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://bmws6spleyhl7"]
 
-[ext_resource type="Script" uid="uid://cclrtud1vtafg" path="res://game/room/ceiling_fan.gd" id="1_iwaop"]
+[ext_resource type="Script" uid="uid://cclrtud1vtafg" path="res://models/props/ceiling_fan/ceiling_fan.gd" id="1_iwaop"]
 [ext_resource type="PackedScene" uid="uid://yxuw7vomfv6" path="res://models/props/ceiling_fan/ceiling_fan_base.glb" id="2_epqo4"]
 [ext_resource type="PackedScene" uid="uid://bys1dm7cw40cq" path="res://models/props/ceiling_fan/ceiling_fan_blades.glb" id="3_u7jlg"]
 
 [node name="CeilingFan" type="Node3D" unique_id=1371555635]
 script = ExtResource("1_iwaop")
 
-[node name="ceiling_fan_base" parent="." unique_id=830233269 instance=ExtResource("2_epqo4")]
+[node name="ceiling_fan_base" parent="." unique_id=129737577 instance=ExtResource("2_epqo4")]
 
-[node name="ceiling_fan_blades" parent="." unique_id=1892978016 instance=ExtResource("3_u7jlg")]
+[node name="ceiling_fan_blades" parent="." unique_id=1624144761 instance=ExtResource("3_u7jlg")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=487175745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5744205, 0)
