@@ -9,6 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3kcjs"]
 
 [node name="Player" type="CharacterBody3D" unique_id=207230869 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_obar5")
 walking_speed = 0.8
 sprinting_speed = 1.5
