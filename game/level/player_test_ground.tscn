@@ -142,7 +142,7 @@ size = Vector3(3.1970215, 3.977539, 1.5218506)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-walking_speed = 1.2
+walking_speed = 1.4
 sprinting_speed = 2.0
 
 [node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("building", "door") instance=ExtResource("2_neiuf")]

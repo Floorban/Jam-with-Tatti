@@ -6,9 +6,13 @@ class_name ElevatorController extends StaticBody3D
 @onready var panel_button_open: ElevatorButton = %PanelButtonOpen
 @onready var panel_button_close: ElevatorButton = %PanelButtonClose
 @onready var panel_button_warning: ElevatorButton = %PanelButtonWarning
+var floor_buttons: Array[ElevatorButton]
 
-@export var close_wait_time := 8.0
+@export var close_wait_time := 6.0
+@export var move_wait_time := 2.5
 var target_floor: int
+var current_floor: int
+var pending_floors: Array[int] = []
 
 var is_moving := false
 
@@ -17,33 +21,64 @@ func _ready() -> void:
 	panel_button_close.action_button_pressed.connect(_on_close_button_pressed)
 	panel_button_warning.action_button_pressed.connect(_open_warning_button_pressed)
 	for btn in get_tree().get_nodes_in_group("floor_button"):
+		floor_buttons.append(btn)
 		btn.floor_button_pressed.connect(_on_floor_button_pressed)
 
-func _on_close_button_pressed(close_button: ElevatorButton) -> void:
-	door.close()
+func _on_close_button_pressed(_close_button: ElevatorButton) -> void:
+	if door.is_open:
+		await get_tree().create_timer(0.5).timeout
+		door.close()
+		await get_tree().create_timer(move_wait_time).timeout
+		_process_next_floor()
 
-func _on_open_button_pressed(open_button: ElevatorButton) -> void:
+func _on_open_button_pressed(_open_button: ElevatorButton) -> void:
 	door.open()
-
-func _open_warning_button_pressed(warning_button: ElevatorButton) -> void:
-	pass
-
-func _on_floor_button_pressed(_button: ElevatorButton, floor: int) -> void:
-	target_floor = floor
-	if is_moving:
-		return
-	is_moving = true
 	_start_close_timer()
 
+func _open_warning_button_pressed(_warning_button: ElevatorButton) -> void:
+	pass
+
+func _on_floor_button_pressed(_button: ElevatorButton, _floor: int) -> void:
+	if _floor in pending_floors:
+		return
+
+	pending_floors.append(_floor)
+	if not is_moving and not door.is_open:
+		_process_next_floor()
+
+func _process_next_floor() -> void:
+	if is_moving:
+		return
+	if pending_floors.is_empty():
+		return
+
+	is_moving = true
+	target_floor = pending_floors.pop_front()
+	_start_move_timer()
+
 func _start_close_timer() -> void:
+	if is_moving:
+		return
 	var t = get_tree().create_timer(close_wait_time)
 	await t.timeout
-	building.move_to_floor(target_floor, Callable(self, "_on_arrived_at_floor"))
 	door.close()
-	
+	await get_tree().create_timer(move_wait_time).timeout
+	_process_next_floor()
+
+func _start_move_timer() -> void:
+	var t = get_tree().create_timer(move_wait_time)
+	await t.timeout
+	building.move_to_floor(target_floor, Callable(self, "_on_arrived_at_floor"))
+
 func _on_arrived_at_floor() -> void:
+	current_floor = target_floor
+	for btn in floor_buttons:
+		if btn.target_floor == current_floor:
+			btn.set_button_on_arrival()
 	is_moving = false
+	print("arrive")
 	door.open()
+	_start_close_timer()
 
 
 

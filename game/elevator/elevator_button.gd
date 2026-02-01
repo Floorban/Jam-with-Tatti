@@ -12,6 +12,7 @@ enum ButtonType {
 }
 
 var target_floor: int
+var is_pressed: bool
 
 signal floor_button_pressed(elevator_button: ElevatorButton, floor: int)
 signal action_button_pressed(elevator_button: ElevatorButton)
@@ -26,6 +27,8 @@ func _ready() -> void:
 func on_pressed(_interactor: Player) -> void:
 	if button_type == ButtonType.FLOOR_BUTTON:
 		floor_button_pressed.emit(self, target_floor)
+		is_pressed = true
+		focus_button()
 	
 	elif button_type == ButtonType.ACTION_BUTTON:
 		action_button_pressed.emit(self)
@@ -42,6 +45,9 @@ func set_floor(new_floor: int) -> void:
 func set_button_type(new_button_type: ButtonType) -> void:
 	button_type = new_button_type
 
+func set_button_on_arrival() -> void:
+	is_pressed = false
+	unfocus_button()
 
 func get_button_type_as_string() -> String:
 	return ButtonType.keys()[button_type]
@@ -51,4 +57,6 @@ func focus_button() -> void:
 	outline.visible = true
 
 func unfocus_button() -> void:
+	if is_pressed:
+		return
 	outline.visible = false
