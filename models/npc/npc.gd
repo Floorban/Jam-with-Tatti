@@ -78,8 +78,9 @@ func _physics_process(delta: float) -> void:
 					#move_dir.z += randf_range(-0.1, 0.1)
 			
 		State.SIT:
-			look_at(global_position - current_chair.global_transform.basis.z)
-			global_position = global_position.move_toward(current_chair.sit_pos_marker.global_position, move_speed_lerp * delta)
+			if current_chair:
+				look_at(global_position - current_chair.global_transform.basis.z)
+				global_position = global_position.move_toward(current_chair.sit_pos_marker.global_position, move_speed_lerp * delta)
 			
 	if player:
 		head_look_at.target_node = player.head.get_path()
