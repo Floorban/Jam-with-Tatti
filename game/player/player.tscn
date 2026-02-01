@@ -13,8 +13,6 @@ height = 1.0678711
 [node name="Player" type="CharacterBody3D" unique_id=207230869 groups=["player"]]
 collision_layer = 9
 script = ExtResource("1_obar5")
-walking_speed = 0.8
-sprinting_speed = 1.5
 
 [node name="Head" type="Node3D" parent="." unique_id=1497549582]
 unique_name_in_owner = true

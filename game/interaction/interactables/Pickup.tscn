@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://iuo7jcb2wy22"]
 
-[ext_resource type="Script" uid="uid://bhw5p861i1lyv" path="res://game/interaction/interactables/pickup.gd" id="1_je44r"]
-[ext_resource type="Material" uid="uid://crnmth6kvjb70" path="res://materials/interaction_outline.tres" id="2_21osi"]
-[ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="2_38uw3"]
+[ext_resource type="Script" uid="uid://bhw5p861i1lyv" path="res://game/interaction/interactables/pickup.gd" id="1_tfwsn"]
+[ext_resource type="Material" uid="uid://crnmth6kvjb70" path="res://materials/interaction_outline.tres" id="2_77t1l"]
+[ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="3_or0aw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ej1bd"]
 size = Vector3(0.6, 0.5, 0.4)
@@ -14,7 +14,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
-"material": ExtResource("2_21osi"),
+"material": ExtResource("2_77t1l"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -31,7 +31,7 @@ size = Vector3(0.579, 0.004, 0.38875586)
 collision_layer = 3
 slide_on_ceiling = false
 floor_constant_speed = true
-script = ExtResource("1_je44r")
+script = ExtResource("1_tfwsn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=891009561]
 mesh = SubResource("BoxMesh_ej1bd")
@@ -43,7 +43,7 @@ mesh = SubResource("ArrayMesh_21osi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1364634065]
 shape = SubResource("BoxShape3D_l4ktq")
 
-[node name="InteractionComponent" parent="." unique_id=194650918 instance=ExtResource("2_38uw3")]
+[node name="InteractionComponent" parent="." unique_id=194650918 instance=ExtResource("3_or0aw")]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1412245709]
 collision_layer = 8

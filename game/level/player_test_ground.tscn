@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://jxr6y5vjbsym" path="res://game/level/building.gd" id="5_8fld1"]
 [ext_resource type="PackedScene" uid="uid://b283iou0j31nv" path="res://game/level/floor_0.tscn" id="5_sxqq6"]
 [ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/elevator_button.tscn" id="6_7qi5a"]
-[ext_resource type="PackedScene" uid="uid://iuo7jcb2wy22" path="res://game/interaction/interactables/Pickup.tscn" id="8_uipxh"]
+[ext_resource type="PackedScene" uid="uid://iuo7jcb2wy22" path="res://game/interaction/interactables/pickup.tscn" id="8_uipxh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
