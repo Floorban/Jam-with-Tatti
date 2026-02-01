@@ -1,6 +1,31 @@
-[gd_scene format=3 uid="uid://b283iou0j31nv"]
+[gd_scene format=4 uid="uid://b283iou0j31nv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_snvt0"]
+_surfaces = [{
+"aabb": AABB(-1.5996094, -0.0847168, -3.3287048, 3.1992188, 0.1694336, 6.6574097),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AMDMvwCArb2ACVVAAMDMvwCArb2ACVXAAMDMvwCArT2ACVXAAMDMPwCArb2ACVXAAMDMvwCArb2ACVXAAMDMvwCArb2ACVVAAMDMvwCArT2ACVXAAMDMvwCArb2ACVXAAMDMPwCArb2ACVXAAMDMvwCArT2ACVXAAMDMvwCArT2ACVVAAMDMvwCArb2ACVVAAMDMvwCArb2ACVVAAMDMvwCArT2ACVVAAMDMPwCArT2ACVVAAMDMPwCArT2ACVVAAMDMvwCArT2ACVVAAMDMvwCArT2ACVXAAMDMvwCArb2ACVVAAMDMPwCArb2ACVVAAMDMPwCArb2ACVXAAMDMPwCArT2ACVVAAMDMPwCArb2ACVVAAMDMvwCArb2ACVVAAMDMPwCArb2ACVXAAMDMPwCArb2ACVVAAMDMPwCArT2ACVVAAMDMPwCArb2ACVXAAMDMPwCArT2ACVXAAMDMvwCArT2ACVXAAMDMvwCArT2ACVXAAMDMPwCArT2ACVXAAMDMPwCArT2ACVVAAMDMPwCArT2ACVVAAMDMPwCArT2ACVXAAMDMPwCArb2ACVXAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofa8d"]
+size = Vector3(3.1992188, 0.1694336, 6.6574097)
 
 [node name="Floor_0" type="Node3D" unique_id=504758970]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=926126151]
+collision_layer = 9
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1379260274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+mesh = SubResource("ArrayMesh_snvt0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2552401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
+shape = SubResource("BoxShape3D_ofa8d")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=54203365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)

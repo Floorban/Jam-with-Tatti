@@ -55,9 +55,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3902278, 1.1798494, -0.905
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3902278, 1.1798494, -1.0392293)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("4_q6bga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 collision_layer = 8
 collision_mask = 9
-walking_speed = 4.0
+walking_speed = 1.8
+sprinting_speed = 3.0
 
 [node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12996018, 1.3645139, -6.6420565)

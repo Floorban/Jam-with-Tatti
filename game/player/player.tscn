@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://brhnbl3gxaoe6" path="res://sprites/reticle_can_interact.png" id="5_4ste8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3kcjs"]
+radius = 0.14794922
+height = 1.0678711
 
 [node name="Player" type="CharacterBody3D" unique_id=207230869 groups=["player"]]
 collision_layer = 9
@@ -16,7 +18,7 @@ sprinting_speed = 1.5
 
 [node name="Head" type="Node3D" parent="." unique_id=1497549582]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="CameraController" parent="Head" unique_id=1081461328 node_paths=PackedStringArray("player_controller") instance=ExtResource("2_b2mth")]
 player_controller = NodePath("../..")
@@ -26,11 +28,17 @@ unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
 collision_mask = 2
 
+[node name="GroundRay" type="RayCast3D" parent="Head/CameraController" unique_id=1167301978]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -10)
+collision_mask = 8
+
 [node name="Hand" type="Marker3D" parent="Head" unique_id=21955999]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3004372, -0.14988168)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1080405186]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53393555, 0)
 shape = SubResource("CapsuleShape3D_3kcjs")
 
 [node name="InteractionController" type="Node" parent="." unique_id=1300463513 node_paths=PackedStringArray("player")]
@@ -87,5 +95,3 @@ grow_vertical = 2
 texture = ExtResource("5_4ste8")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Marker3D" type="Marker3D" parent="." unique_id=1650769638]

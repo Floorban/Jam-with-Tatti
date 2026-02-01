@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://db6c0wsjpls4i" path="res://game/elevator/elevator_door.tscn" id="4_c5md6"]
 [ext_resource type="Script" uid="uid://jxr6y5vjbsym" path="res://game/level/building.gd" id="5_8fld1"]
 [ext_resource type="PackedScene" uid="uid://b283iou0j31nv" path="res://game/level/floor_0.tscn" id="5_sxqq6"]
+[ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/elevator_button.tscn" id="6_7qi5a"]
+[ext_resource type="PackedScene" uid="uid://iuo7jcb2wy22" path="res://game/interaction/interactables/Pickup.tscn" id="8_uipxh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +22,9 @@ sky = SubResource("Sky_p2jlr")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uipxh"]
+size = Vector3(2.5061035, 0.5024414, 2.600586)
+
 [node name="PlayerTestGround" type="Node3D" unique_id=12293222]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1649488051]
@@ -31,6 +36,14 @@ shadow_enabled = true
 
 [node name="elevator" parent="." unique_id=1217569799 instance=ExtResource("3_6xa3n")]
 
+[node name="StaticBody3D" type="StaticBody3D" parent="elevator" unique_id=162054269]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="elevator/StaticBody3D" unique_id=438728147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2487793, -0.08691406)
+shape = SubResource("BoxShape3D_uipxh")
+
 [node name="Building" type="Node3D" parent="." unique_id=1879413860 node_paths=PackedStringArray("floors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.08111191)
 script = ExtResource("5_8fld1")
@@ -38,26 +51,6 @@ floors = [NodePath("Floor_0"), NodePath("Floor_1"), NodePath("Floor_2"), NodePat
 
 [node name="Floor_0" parent="Building" unique_id=504758970 instance=ExtResource("5_sxqq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.282146)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Building/Floor_0" unique_id=436158900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07085788, -0.57224846)
-size = Vector3(3.1992188, 0.1694336, 6.6574097)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Building/Floor_0" unique_id=8263479]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7784433, -0.5641918)
-size = Vector3(3.1992188, 0.1694336, 6.6412964)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Building/Floor_0" unique_id=189046965]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3610849, -3.750308)
-size = Vector3(2.9658203, 2.8591309, 0.28842163)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Building/Floor_0" unique_id=1855963229]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4225464, 1.4066615, -0.57224846)
-size = Vector3(0.35412598, 2.8970947, 6.6574097)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Building/Floor_0" unique_id=1365289725]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4184337, 1.4066615, -0.5641918)
-size = Vector3(0.35412598, 2.8970947, 6.6412964)
 
 [node name="Floor_1" parent="Building" unique_id=1867008355 instance=ExtResource("5_sxqq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.917387, -4.282146)
@@ -141,14 +134,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.71561, -2.2910519)
 size = Vector3(3.1970215, 3.977539, 1.5218506)
 
 [node name="Player" parent="." unique_id=207230869 instance=ExtResource("1_p2jlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-walking_speed = 1.4
-sprinting_speed = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+walking_speed = 3.0
+sprinting_speed = 5.0
 
-[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("building", "door") instance=ExtResource("2_neiuf")]
+[node name="ElevatorController" parent="." unique_id=418184877 node_paths=PackedStringArray("building", "door", "button_open") instance=ExtResource("2_neiuf")]
 transform = Transform3D(-1.141829e-07, 0, 2.6122003, 0, 2.6122003, 0, -2.6122003, 0, -1.141829e-07, -1.4339697, 1.5714293, -0.85383654)
 building = NodePath("../Building")
 door = NodePath("../ElevatorDoor")
+button_open = NodePath("ActionButtons/ElevatorButtonOpen")
+
+[node name="ElevatorButtonOpen" parent="ElevatorController/ActionButtons" parent_id_path=PackedInt32Array(418184877, 1657357019) index="3" unique_id=1052726071 instance=ExtResource("6_7qi5a")]
+transform = Transform3D(-4.3711378e-08, 0, 0.9999999, 0, 0.9999999, 0, -0.9999999, 0, -4.3711378e-08, 0.29703075, 0.014582396, 0.15640378)
+
+[node name="ButtonActionLabel" parent="ElevatorController/ActionButtons/ElevatorButtonOpen" index="3" unique_id=687128113]
+text = "
+"
 
 [node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("4_c5md6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.875958, 1.1931387, -1.5751443)
+
+[node name="Pickup" parent="." unique_id=650140349 instance=ExtResource("8_uipxh")]
+
+[editable path="ElevatorController"]
+[editable path="ElevatorController/ActionButtons/PanelButtonOpen"]
+[editable path="ElevatorController/ActionButtons/PanelButtonClose"]
+[editable path="ElevatorController/ActionButtons/PanelButtonWarning"]
+[editable path="ElevatorController/ActionButtons/ElevatorButtonOpen"]

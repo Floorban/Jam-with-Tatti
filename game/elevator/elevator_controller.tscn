@@ -34,8 +34,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0003054142, 0.14939678)
 fov = 120.0
 
 [node name="Screen" type="Sprite3D" parent="." unique_id=1646434819]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07319195, 0.15920421, 0.010028303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.081615426, 0.10727599, 0.010028303)
 texture = SubResource("ImageTexture_p81tc")
+
+[node name="CurrentLabel" type="Label3D" parent="Screen" unique_id=76391926]
+unique_name_in_owner = true
+pixel_size = 0.001
+text = "1"
+font_size = 64
 
 [node name="FloorButtons" type="Node3D" parent="." unique_id=1169897637]
 script = ExtResource("3_p81tc")
@@ -57,9 +63,7 @@ script = ExtResource("5_mcpym")
 
 [node name="PanelButtonOpen" parent="ActionButtons" unique_id=1052726071 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.09911737, 0.00860551)
-visible = false
-collision_layer = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015587769, 0.09911737, 0.00860551)
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonOpen" index="3" unique_id=687128113]
 text = "< | >"
@@ -67,7 +71,7 @@ font_size = 20
 
 [node name="PanelButtonClose" parent="ActionButtons" unique_id=1739280143 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038784675, 0.09911737, 0.00860551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09745284, 0.09911737, 0.00860551)
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonClose" index="3" unique_id=687128113]
 text = "> | <
@@ -76,7 +80,9 @@ font_size = 20
 
 [node name="PanelButtonWarning" parent="ActionButtons" unique_id=1556346262 instance=ExtResource("3_02lqp")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04186452, 0.09926054, 0.00860551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016803645, 0.09926054, 0.00860551)
+visible = false
+collision_layer = 0
 
 [node name="ButtonActionLabel" parent="ActionButtons/PanelButtonWarning" index="3" unique_id=687128113]
 text = "!"

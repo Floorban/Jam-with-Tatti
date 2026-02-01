@@ -1,0 +1,43 @@
+[gd_scene format=4 uid="uid://iuo7jcb2wy22"]
+
+[ext_resource type="Script" uid="uid://bhw5p861i1lyv" path="res://game/interaction/interactables/pickup.gd" id="1_je44r"]
+[ext_resource type="Material" uid="uid://crnmth6kvjb70" path="res://materials/interaction_outline.tres" id="2_21osi"]
+[ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="2_38uw3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ej1bd"]
+size = Vector3(0.5, 0.2, 0.4)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_38uw3"]
+_surfaces = [{
+"aabb": AABB(-0.261547, -0.11154701, -0.211547, 0.523094, 0.22309402, 0.423094),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"material": ExtResource("2_21osi"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("femFvsJy5D3Hn1g+femFPsJy5D3Hn1i+femFPsJy5D3Hn1g+femFvsJy5D3Hn1i+femFvsJy5L3Hn1g+femFPsJy5L3Hn1i+femFPsJy5L3Hn1g+femFvsJy5L3Hn1i+femFPsJy5D3Hn1g+femFvsJy5D3Hn1i+femFPsJy5D3Hn1i+femFvsJy5D3Hn1g+femFPsJy5L3Hn1g+femFvsJy5L3Hn1i+femFPsJy5L3Hn1i+femFvsJy5L3Hn1g+femFPsJy5D3Hn1g+femFvsJy5L3Hn1g+femFvsJy5D3Hn1g+femFPsJy5L3Hn1g+femFPsJy5D3Hn1i+femFvsJy5L3Hn1i+femFvsJy5D3Hn1i+femFPsJy5L3Hn1i+/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej1bd"]
+size = Vector3(0.5, 0.2, 0.4)
+
+[node name="Pickup" type="CharacterBody3D" unique_id=650140349]
+collision_layer = 3
+slide_on_ceiling = false
+floor_constant_speed = true
+script = ExtResource("1_je44r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=891009561]
+mesh = SubResource("BoxMesh_ej1bd")
+
+[node name="Outline" type="MeshInstance3D" parent="MeshInstance3D" unique_id=2113942239]
+unique_name_in_owner = true
+mesh = SubResource("ArrayMesh_38uw3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633445633]
+shape = SubResource("BoxShape3D_ej1bd")
+
+[node name="InteractionComponent" parent="." unique_id=194650918 instance=ExtResource("2_38uw3")]

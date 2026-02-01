@@ -3,6 +3,7 @@ class_name ElevatorController extends StaticBody3D
 @export var building: Building
 
 @export var door: ElevatorDoor
+@export var button_open: ElevatorButton
 @onready var panel_button_open: ElevatorButton = %PanelButtonOpen
 @onready var panel_button_close: ElevatorButton = %PanelButtonClose
 @onready var panel_button_warning: ElevatorButton = %PanelButtonWarning
@@ -16,7 +17,11 @@ var pending_floors: Array[int] = []
 
 var is_moving := false
 
+@onready var current_label: Label3D = %CurrentLabel
+
 func _ready() -> void:
+	_update_current_label()
+	if button_open: button_open.action_button_pressed.connect(_on_open_button_pressed)
 	panel_button_open.action_button_pressed.connect(_on_open_button_pressed)
 	panel_button_close.action_button_pressed.connect(_on_close_button_pressed)
 	panel_button_warning.action_button_pressed.connect(_open_warning_button_pressed)
@@ -24,16 +29,29 @@ func _ready() -> void:
 		floor_buttons.append(btn)
 		btn.floor_button_pressed.connect(_on_floor_button_pressed)
 
+func _process(_delta: float) -> void:
+	if not is_moving:
+		return
+
+	_update_current_label()
+
+func _update_current_label() -> void:
+	var y := building.global_position.y
+	var approx_floor := int(round(y / building.floor_height))
+	current_label.text = str(-approx_floor)
+
 func _on_close_button_pressed(_close_button: ElevatorButton) -> void:
 	if door.is_open:
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.8).timeout
 		door.close()
 		await get_tree().create_timer(move_wait_time).timeout
 		_process_next_floor()
 
 func _on_open_button_pressed(_open_button: ElevatorButton) -> void:
-	door.open()
-	_start_close_timer()
+	if not is_moving and not door.is_open:
+		await get_tree().create_timer(0.5).timeout
+		door.open()
+		_start_close_timer()
 
 func _open_warning_button_pressed(_warning_button: ElevatorButton) -> void:
 	pass
@@ -72,6 +90,7 @@ func _start_move_timer() -> void:
 
 func _on_arrived_at_floor() -> void:
 	current_floor = target_floor
+	current_label.text = str(current_floor)
 	for btn in floor_buttons:
 		if btn.target_floor == current_floor:
 			btn.set_button_on_arrival()
@@ -79,42 +98,6 @@ func _on_arrived_at_floor() -> void:
 	print("arrive")
 	door.open()
 	_start_close_timer()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

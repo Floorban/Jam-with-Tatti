@@ -1,5 +1,7 @@
 class_name Building extends Node3D
 
+@export var floor_height := 8.0
+
 @export var move_speed := 2.0 # units per second
 @export var floors: Array[Node3D]
 var current_floor := 0
