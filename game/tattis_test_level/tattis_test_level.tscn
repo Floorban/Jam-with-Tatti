@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4eugtsd6dowa" path="res://models/elevator/elevator_button.glb" id="3_i2j2k"]
 [ext_resource type="PackedScene" uid="uid://b12fhqld0phdm" path="res://game/player/player.tscn" id="4_q6bga"]
 [ext_resource type="PackedScene" uid="uid://b3uyd2kjs7vi0" path="res://models/room/room.glb" id="5_ac16t"]
+[ext_resource type="Script" uid="uid://du53jcr4doid7" path="res://game/room/room.gd" id="7_q6bga"]
 [ext_resource type="PackedScene" uid="uid://bmws6spleyhl7" path="res://models/props/ceiling_fan/ceiling_fan.tscn" id="8_wl8fw"]
 [ext_resource type="PackedScene" uid="uid://bbf2bb2a7q2ac" path="res://models/props/table/table.glb" id="10_ac16t"]
 [ext_resource type="PackedScene" uid="uid://cc1k86y541c14" path="res://models/npc/npc.tscn" id="10_i2j2k"]
@@ -59,12 +60,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 collision_layer = 8
 collision_mask = 9
 walking_speed = 1.8
-sprinting_speed = 3.0
 
 [node name="vase" parent="." unique_id=1677734439 instance=ExtResource("11_m07c5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12996018, 1.3645139, -6.6420565)
 
 [node name="room" parent="." unique_id=872457426 instance=ExtResource("5_ac16t")]
+script = ExtResource("7_q6bga")
 
 [node name="table" parent="room" unique_id=196752581 instance=ExtResource("10_ac16t")]
 transform = Transform3D(1.3261492, 0, 0, 0, 1.3261492, 0, 0, 0, 1.3261492, 0, 0, -6.6469293)

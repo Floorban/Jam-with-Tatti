@@ -9,18 +9,17 @@ class_name Player extends CharacterBody3D
 @export_category("Movement")
 @export var walking_speed: float = 2.0
 @export var sprinting_speed: float = 3.0
-@export var acceleration: float = 5
-@export var deceleration: float = 5
+@export var acceleration: float = 7
+@export var deceleration: float = 10
+var gravity: float = 5
 
-var can_move := true
+var can_move: bool = true
 var current_speed: float
 var max_speed: float
-var moving: bool = false
 var input_dir: Vector2 = Vector2.ZERO
-var direction: Vector3 = Vector3.ZERO
-var lerp_speed: float = 4.0
+var move_direction: Vector3 = Vector3.ZERO
 
-var holding_pickup: Pickup
+var current_pickup: Pickup
 
 
 func set_player_input(stop: bool) -> void:
@@ -35,14 +34,15 @@ func get_movement_dir() -> Vector3:
 
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y -= delta * 5
-	update_player_horizontal(delta)
+	handle_gravity(delta)
+	update_player_movement(delta)
 	if Input.is_action_just_pressed("primary"):
 		drop()
 
 
-func update_player_horizontal(delta: float) -> void:
+func update_player_movement(delta: float) -> void:
+
+	
 	if not can_move:
 		return
 	
@@ -51,35 +51,42 @@ func update_player_horizontal(delta: float) -> void:
 	else:
 		max_speed = walking_speed
 	
-	direction = get_movement_dir()
+	move_direction = get_movement_dir()
 	
-	if direction != Vector3.ZERO:
+	if move_direction != Vector3.ZERO:
 		current_speed = lerp(current_speed, max_speed, acceleration * delta)
 	else:
 		current_speed = lerp(current_speed, 0.0, deceleration * delta)
 	
-	velocity.x = direction.x * current_speed
-	velocity.z = direction.z * current_speed
+	velocity.x = move_direction.x * current_speed
+	velocity.z = move_direction.z * current_speed
+
+	
 	move_and_slide()
 
 
+func handle_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+
 func can_pickup() -> bool:
-	return holding_pickup == null
+	return current_pickup == null
 
 
 func pickup(new_pickup: Pickup) -> void:
-	holding_pickup = new_pickup
+	current_pickup = new_pickup
 	interaction_controller.can_interact = false
 	interaction_controller.interaction_raycast.enabled = false
 
 
 func drop() -> void:
-	if holding_pickup == null:
+	if current_pickup == null:
 		return
 	
 	var drop_position := _get_drop_position()
-	holding_pickup.on_drop(drop_position)
-	holding_pickup = null
+	current_pickup.on_drop(drop_position)
+	current_pickup = null
 	interaction_controller.can_interact = true
 	interaction_controller.interaction_raycast.enabled = true
 
