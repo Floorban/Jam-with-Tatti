@@ -58,6 +58,7 @@ func can_pickup() -> bool:
 func pickup(new_pickup: Pickup) -> void:
 	holding_pickup = new_pickup
 	interaction_controller.can_interact = false
+	interaction_controller.interaction_raycast.enabled = false
 
 func drop() -> void:
 	if holding_pickup == null:
@@ -66,13 +67,13 @@ func drop() -> void:
 	holding_pickup.on_drop(drop_position)
 	holding_pickup = null
 	interaction_controller.can_interact = true
+	interaction_controller.interaction_raycast.enabled = true
 
 func _get_drop_position() -> Vector3:
 	ground_ray.force_raycast_update()
 	if ground_ray.is_colliding():
 		var point : = ground_ray.get_collision_point()
-		print(point)
 		var normal := ground_ray.get_collision_normal()
 		return point + normal * 0.05
 
-	return global_position + -global_transform.basis.z * 0.6
+	return global_position + -global_transform.basis.z * 0.5

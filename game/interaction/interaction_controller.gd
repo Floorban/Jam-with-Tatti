@@ -21,7 +21,8 @@ func _ready() -> void:
 	ui_init()
 
 func _process(_delta: float) -> void:
-	if not can_interact: return
+	if not can_interact: 
+		return
 	# If on the previous frame, keep interacting with it
 	if current_object and not interaction_component:
 		stop_interactions()

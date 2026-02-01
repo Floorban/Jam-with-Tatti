@@ -13,9 +13,9 @@ func _ready() -> void:
 	original_parent = get_parent() as Node3D
 
 func _on_pick_up(interactor: Player) -> void:
-	
 	if not interactor.can_pickup():
 		return
+	print(name)
 	set_collision_layer_value(1, false)
 	set_physics_process(false)
 	set_process(false)
