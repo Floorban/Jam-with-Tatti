@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b283iou0j31nv" path="res://game/level/floor_0.tscn" id="5_sxqq6"]
 [ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/elevator_button.tscn" id="6_7qi5a"]
 [ext_resource type="PackedScene" uid="uid://iuo7jcb2wy22" path="res://game/interaction/interactables/pickup.tscn" id="8_uipxh"]
+[ext_resource type="Material" uid="uid://byqferwcacl8p" path="res://materials/door.tres" id="9_oakd6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3sdid"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -159,8 +160,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7939102)
 [node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("4_c5md6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4889002, 1.3781103, -1.5459646)
 
+[node name="ElevatorDoor" parent="ElevatorDoor/Mesh" parent_id_path=PackedInt32Array(110669702, 941214165) index="0" unique_id=1449239654]
+surface_material_override/0 = ExtResource("9_oakd6")
+
 [editable path="ElevatorController"]
 [editable path="ElevatorController/ActionButtons/PanelButtonOpen"]
 [editable path="ElevatorController/ActionButtons/PanelButtonClose"]
 [editable path="ElevatorController/ActionButtons/PanelButtonWarning"]
 [editable path="ElevatorController/ActionButtons/ElevatorButtonOpen"]
+[editable path="ElevatorDoor"]
+[editable path="ElevatorDoor/Mesh"]

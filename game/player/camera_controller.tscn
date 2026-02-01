@@ -6,9 +6,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nqcdv"]
 render_priority = 0
 shader = ExtResource("2_lm4gc")
-shader_parameter/pixel_size = 1.0
-shader_parameter/color_levels = 0.0
-shader_parameter/gamma = Vector2(0, 0)
+shader_parameter/pixel_size = 2.0
+shader_parameter/color_levels = 20.0
+shader_parameter/gamma = Vector2(0.125, 12)
 
 [sub_resource type="QuadMesh" id="QuadMesh_1kwht"]
 material = SubResource("ShaderMaterial_nqcdv")

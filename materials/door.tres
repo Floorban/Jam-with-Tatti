@@ -8,3 +8,7 @@ transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("1_o0jtr")
 roughness = 0.5
+uv1_scale = Vector3(0.525, 0.525, 0.525)
+uv1_triplanar_sharpness = 1.7411016
+grow_amount = -2.977
+stencil_flags = 2
