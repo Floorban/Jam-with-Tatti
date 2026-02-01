@@ -145,18 +145,19 @@ func handle_looking(delta: float) -> void:
 
 
 func get_random_dir() -> Vector3:
-	return Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
+	return Vector3(randf_range(-1, 1), 0, randf_range(-1, 1)).normalized()
 
 
 
 
 
 
-func _on_player_area_body_entered(body: Node3D) -> void:
+
+func _on_vision_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		player = body
 
 
-func _on_player_area_body_exited(body: Node3D) -> void:
+func _on_vision_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		player = null

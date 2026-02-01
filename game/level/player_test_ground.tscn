@@ -151,10 +151,10 @@ transform = Transform3D(-4.3711378e-08, 0, 0.9999999, 0, 0.9999999, 0, -0.999999
 text = "
 "
 
-[node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("4_c5md6")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.875958, 1.1931387, -1.5751443)
-
 [node name="Pickup" parent="." unique_id=650140349 instance=ExtResource("8_uipxh")]
+
+[node name="ElevatorDoor" parent="." unique_id=110669702 instance=ExtResource("4_c5md6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4889002, 1.3781103, -1.5459646)
 
 [editable path="ElevatorController"]
 [editable path="ElevatorController/ActionButtons/PanelButtonOpen"]

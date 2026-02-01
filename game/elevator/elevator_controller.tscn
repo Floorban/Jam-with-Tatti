@@ -1,20 +1,13 @@
 [gd_scene format=3 uid="uid://c8b2srshfhg3u"]
 
 [ext_resource type="Script" uid="uid://cqvdgwr643m0k" path="res://game/elevator/elevator_controller.gd" id="1_ycwdn"]
+[ext_resource type="PackedScene" uid="uid://dof8hwprwwlse" path="res://models/elevator/elevator_button_panel.glb" id="2_mcpym"]
 [ext_resource type="PackedScene" uid="uid://brtlmi4u6clvv" path="res://game/elevator/elevator_button.tscn" id="3_02lqp"]
 [ext_resource type="Script" uid="uid://cmnqllen0cteq" path="res://game/elevator/floor_button_container.gd" id="3_p81tc"]
 [ext_resource type="Script" uid="uid://bc6vv5td7j2wd" path="res://game/elevator/action_button_container.gd" id="5_mcpym"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02lqp"]
-shading_mode = 0
-albedo_color = Color(0.20413154, 0.20413157, 0.20413154, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0gx44"]
-material = SubResource("StandardMaterial3D_02lqp")
-size = Vector3(0.3, 0.35, 0.02)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycwdn"]
-size = Vector3(0.3, 0.35, 0.02)
+size = Vector3(0.26464844, 0.39233398, 0.02)
 
 [sub_resource type="ImageTexture" id="ImageTexture_p81tc"]
 
@@ -23,8 +16,8 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ycwdn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1376852725]
-mesh = SubResource("BoxMesh_0gx44")
+[node name="elevator_button_panel" parent="." unique_id=167842056 instance=ExtResource("2_mcpym")]
+transform = Transform3D(-2.2795655e-08, 0, -0.5215038, 0, 0.5215038, 0, 0.5215038, 0, -2.2795655e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136225685]
 shape = SubResource("BoxShape3D_ycwdn")

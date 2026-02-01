@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://byqferwcacl8p"]
+
+[ext_resource type="Texture2D" uid="uid://ib3w2eklq5qf" path="res://models/elevator/elevator_door_metal_0054_color_1k.jpg-metal_0054_opacity_1k.png" id="1_o0jtr"]
+
+[resource]
+resource_name = "door"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_o0jtr")
+roughness = 0.5

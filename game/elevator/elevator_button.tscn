@@ -3,16 +3,7 @@
 [ext_resource type="Script" uid="uid://5dkyn15j3t72" path="res://game/elevator/elevator_button.gd" id="1_4djqi"]
 [ext_resource type="Material" uid="uid://crnmth6kvjb70" path="res://materials/interaction_outline.tres" id="2_b4il5"]
 [ext_resource type="PackedScene" uid="uid://cgilbk03wnwbc" path="res://game/interaction/InteractionComponent.tscn" id="2_dc6qm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8kow"]
-shading_mode = 0
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.70894563, 0.70894563, 0.7089456, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r8kow"]
-material = SubResource("StandardMaterial3D_r8kow")
-size = Vector3(0.05, 0.05, 0.01)
+[ext_resource type="PackedScene" uid="uid://b4eugtsd6dowa" path="res://models/elevator/elevator_button.glb" id="2_m7am1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ylqwl"]
 _surfaces = [{
@@ -35,11 +26,12 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_4djqi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=720800730]
-mesh = SubResource("BoxMesh_r8kow")
+[node name="elevator_button" parent="." unique_id=285953790 instance=ExtResource("2_m7am1")]
+transform = Transform3D(-2.784581e-08, 0, 0.6370379, 0, 0.6370379, 0, -0.6370379, 0, -2.784581e-08, 0, 0, 0)
 
-[node name="Outline" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1433465320]
+[node name="Outline" type="MeshInstance3D" parent="elevator_button" unique_id=1433465320]
 unique_name_in_owner = true
+transform = Transform3D(-6.861662e-08, 0, -4.1724534, 0, 1.5697653, 0, 1.5697653, 0, -1.8238373e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ylqwl")
 surface_material_override/0 = ExtResource("2_b4il5")
 
@@ -50,7 +42,7 @@ shape = SubResource("BoxShape3D_r8kow")
 
 [node name="ButtonActionLabel" type="Label3D" parent="." unique_id=687128113]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0051555037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.020039394)
 layers = 2
 pixel_size = 0.001
 texture_filter = 0

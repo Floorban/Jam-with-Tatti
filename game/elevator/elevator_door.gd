@@ -1,6 +1,6 @@
 class_name ElevatorDoor extends CharacterBody3D
 
-@onready var mesh_root: Node3D = $MeshRoot
+@onready var mesh: Node3D = $Mesh
 @onready var collision: CollisionShape3D = $Collision
 @onready var door_ray_cast: RayCast3D = $DoorRayCast
 
@@ -46,7 +46,7 @@ func door_move_door_tween(target_ratio: float) -> void:
 	door_tween.set_ease(door_tween.EASE_IN_OUT)
 
 	door_tween.parallel().tween_property(
-		mesh_root,
+		mesh,
 		"scale:x",
 		target_ratio,
 		move_duration
